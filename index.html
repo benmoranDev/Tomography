@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomografia Computadorizada — Introdução</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="aurora-bg">
+    <div class="aurora-blob blob-cyan"></div>
+    <div class="aurora-blob blob-violet"></div>
+    <div class="aurora-blob blob-amber"></div>
+    <div class="aurora-blob blob-cyan2"></div>
+</div>
+<div class="grid-bg"></div>
+
+<nav class="navbar navbar-expand-md navbar-scan fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand" href="#top">CT<span>·</span>Introdução</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" style="border-color:#e2e6eb;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navMain">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#historia">História</a></li>
+                <li class="nav-item"><a class="nav-link" href="#conceitos">Como funciona</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tubo-detectores">Tubo e detectores</a></li>
+                <li class="nav-item"><a class="nav-link" href="#matriz">Matriz e pixel</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reconstrucao">Reconstrução</a></li>
+                <li class="nav-item"><a class="nav-link" href="#geracoes">Gerações</a></li>
+                <li class="nav-item"><a class="nav-link" href="#helicoidal-conceitos">Pitch</a></li>
+                <li class="nav-item"><a class="nav-link" href="#fonte-dupla">Fonte dupla</a></li>
+                <li class="nav-item"><a class="nav-link" href="#comparativo">Comparativo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#hounsfield">Escala HU</a></li>
+                <li class="nav-item"><a class="nav-link" href="#fov-artefatos">FOV e artefatos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#seguranca">Segurança</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero" id="top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="eyebrow">Introdução à tomografia computadorizada</div>
+                <h1>Da <span class="accent">1ª geração</span> ao <span class="accent">multislice</span></h1>
+                <p class="lead-text">Uma linha do tempo interativa sobre como o tomógrafo evoluiu de um único feixe de raios-X varrendo ponto a ponto até os sistemas multidetectores que capturam o corpo inteiro em segundos.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="hero-visual" id="heroVisual">
+                    <svg id="heroScanSvg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="200" cy="200" r="180" fill="none" stroke="#e2e6eb" stroke-width="1"/>
+                        <circle cx="200" cy="200" r="150" fill="none" stroke="#e2e6eb" stroke-width="1" opacity="0.6" stroke-dasharray="3 5"/>
+                        <circle cx="200" cy="200" r="46" fill="#eef1f5" stroke="#c3c8d1" stroke-width="1.5"/>
+                        <circle cx="200" cy="200" r="30" fill="#e2e5ea" stroke="#aab0bb" stroke-width="1"/>
+                        <g id="heroTrailGroup"></g>
+                        <g id="heroBeamGroup"></g>
+                        <g id="heroDetGroup"></g>
+                        <circle id="heroTube" cx="200" cy="20" r="7" fill="#b45309"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-cue">ROLAR<i></i></div>
+</header>
+
+<section class="section-pad" id="historia">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Antes da linha do tempo</div>
+            <h2 class="section-title">Aspectos históricos</h2>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-4 mb-4 reveal">
+                <div class="history-year-card">
+                    <div class="year-num">1972</div>
+                    <div class="year-loc">Middlesex, Inglaterra</div>
+                    <ul class="year-facts">
+                        <li>Introduzido por <b>G. N. Hounsfield</b></li>
+                        <li>Fabricado pela <b>E.M.I.</b></li>
+                        <li>Primeiro método de imagem capaz de avaliar <b>tecidos moles</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 mb-4 reveal">
+                <p class="info-desc" style="font-size:1rem;">A tomografia computadorizada surgiu como método de diagnóstico por imagem em 1972, introduzida por G. N. Hounsfield. O método obteve grande repercussão principalmente pela possibilidade de avaliar tecidos moles — músculos, vísceras e, em especial, o parênquima cerebral.</p>
+                <p class="pull-quote">Até então, o diagnóstico de hematoma no traumatismo cranioencefálico, ou mesmo num acidente vascular cerebral, só podia ser feito com segurança na abordagem cirúrgica.</p>
+                <p class="info-desc" style="font-size:1rem;">Com o advento da tomografia, abriram-se novas perspectivas — particularmente nas patologias neurológicas. Em pouco tempo a técnica foi ampliada para os demais sistemas e órgãos do corpo humano, passando a integrar os principais centros de diagnóstico por imagem do mundo. Ainda hoje o método segue em transformação, com pesquisas voltadas à redução do tempo de exame e ao desenvolvimento de softwares gráficos de processamento de imagem.</p>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <div class="pioneers-row">
+                <div class="pioneer-card">
+                    <img src="img/hounsfield.jpg" alt="Godfrey Hounsfield" class="pioneer-photo">
+                    <div class="pioneer-name">Godfrey Hounsfield</div>
+                    <div class="pioneer-dates">1919–2004 · Inglaterra</div>
+                    <p class="pioneer-role">Engenheiro eletricista na EMI. Teve a ideia da tomografia observando que se poderia deduzir o conteúdo de uma caixa a partir de leituras de raios-X em vários ângulos — e construiu o primeiro tomógrafo, testado nele mesmo antes do uso clínico, em 1971.</p>
+                    <span class="pioneer-badge">Nobel de Fisiologia ou Medicina · 1979</span>
+                </div>
+                <div class="pioneer-card">
+                    <img src="img/cormack.jpg" alt="Allan Cormack" class="pioneer-photo">
+                    <div class="pioneer-name">Allan Cormack</div>
+                    <div class="pioneer-dates">1924–1998 · África do Sul / EUA</div>
+                    <p class="pioneer-role">Físico na Tufts University. Publicou, entre 1963 e 1964, a base matemática para reconstruir uma imagem a partir de projeções de raios-X em múltiplos ângulos — trabalho que passou quase despercebido até o scanner de Hounsfield comprová-lo na prática.</p>
+                    <span class="pioneer-badge">Nobel de Fisiologia ou Medicina · 1979</span>
+                </div>
+            </div>
+            <p class="pioneers-note">Cormack desenvolveu a teoria e Hounsfield construiu a máquina — cada um, de forma independente, em lados opostos do mundo, sem nunca terem colaborado entre si. Por isso dividiram o Prêmio Nobel de Fisiologia ou Medicina de 1979.</p>
+        </div>
+
+        <div class="reveal mt-3">
+            <h3 style="font-size:1.3rem;margin-bottom:0.5rem;">O método</h3>
+            <p class="section-sub" style="max-width:760px;">A tomografia trabalha com tubos de raios-X de alta potência. Disposto no interior do gantry, o tubo gira de forma justaposta a um conjunto de detectores — responsáveis por coletar o residual de radiação de um feixe estreito. Durante a aquisição de um corte, enquanto o tubo gira ao redor do paciente, o feixe incide nos detectores em múltiplas projeções, e as informações são enviadas ao computador responsável por reconstruir a imagem.</p>
+
+            <div class="process-step-row">
+                <div class="process-step">
+                    <div class="process-num">01</div>
+                    <h4>Emissão</h4>
+                    <p>O tubo de alta potência gira ao redor do paciente, emitindo um feixe estreito de raios-X.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">02</div>
+                    <h4>Detecção</h4>
+                    <p>Os detectores, girando junto com o tubo, coletam a radiação residual em múltiplas projeções.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">03</div>
+                    <h4>Processamento</h4>
+                    <p>Os dados são enviados ao computador, que reconstrói o corte tomográfico.</p>
+                </div>
+            </div>
+
+            <div class="method-spotlight">
+                <span class="gantry-tag"><span class="dot"></span>O primeiro tomógrafo (E.M.I.)</span>
+                <p class="info-desc" style="font-size:0.95rem;">Apresentado por Sir Hounsfield, o equipamento tinha um tubo de raios-X simples, de anodo fixo e alvo de dimensões relativamente exageradas — suficiente para suportar o calor gerado pelos sucessivos bombardeios de elétrons. Os cortes eram construídos por meio de um feixe estreito, da espessura aproximada de um lápis, que após atravessar o paciente incidia nos detectores de radiação residual.</p>
+                <div class="spotlight-facts">
+                    <span class="spotlight-fact">Alvo 3 × 13 mm</span>
+                    <span class="spotlight-fact">160 exposições por varredura</span>
+                    <span class="spotlight-fact">Rotação de 1° a cada varredura</span>
+                    <span class="spotlight-fact">180 repetições por corte</span>
+                </div>
+                <a class="spotlight-link" href="#geracoes">Ver essa geração animada na linha do tempo →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="conceitos">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Antes da linha do tempo</div>
+            <h2 class="section-title">As três peças de um tomógrafo</h2>
+            <p class="section-sub">Toda geração que você vai ver a seguir é, no fundo, uma forma diferente de organizar estes três elementos ao redor do paciente.</p>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4 reveal">
+                <div class="concept-card">
+                    <div class="concept-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+                    </div>
+                    <div class="concept-num">01 — TUBO</div>
+                    <h3>Fonte de raios-X</h3>
+                    <p>Emite o feixe que atravessa o paciente. Sua trajetória ao redor do corpo — reta, giratória ou eletrônica — é o que define cada geração.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal">
+                <div class="concept-card">
+                    <div class="concept-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.6"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M6 9v6M10 9v6M14 9v6M18 9v6"/></svg>
+                    </div>
+                    <div class="concept-num">02 — DETECTORES</div>
+                    <h3>Captação do sinal</h3>
+                    <p>Medem quanto do feixe foi atenuado ao atravessar os tecidos. Quantos detectores existem, e se eles se movem ou ficam fixos, determina a velocidade do exame.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal">
+                <div class="concept-card">
+                    <div class="concept-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.6"><path d="M4 19h16M4 15l4-4 3 3 5-6 4 4"/></svg>
+                    </div>
+                    <div class="concept-num">03 — RECONSTRUÇÃO</div>
+                    <h3>Do sinal à imagem</h3>
+                    <p>Um algoritmo combina milhares de medidas de atenuação, tiradas em ângulos diferentes, para calcular a densidade de cada ponto e montar o corte transversal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="tubo-detectores">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">As duas peças mais caras do tomógrafo</div>
+            <h2 class="section-title">O tubo de raios-X e os detectores</h2>
+            <p class="section-sub">Voltando às três peças do início: o tubo e os detectores merecem um olhar mais de perto — são eles que respondem pela maior parte do custo, e da evolução técnica, de um tomógrafo.</p>
+        </div>
+
+        <h3 class="reveal" style="font-size:1.25rem;margin-top:1.5rem;margin-bottom:0.4rem;">O tubo de raios-X do TC</h3>
+        <p class="section-sub reveal" style="max-width:760px;">Os tubos usados em TC são bastante semelhantes aos da radiologia convencional, mas com ênfase especial na dissipação de calor — ficam sujeitos a maior frequência de exposição, exposições mais longas e doses mais altas. Sua disposição dentro do gantry, com o eixo catodo-anodo perpendicular ao movimento de rotação, evita a influência do efeito anódico (heel effect).</p>
+
+        <div class="row mt-3">
+            <div class="col-md-6 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">Foco fino</div>
+                    <h4>Potência até 20 kW</h4>
+                    <p>Filamento menor, usado quando a potência não excede 20 kW. Alguns equipamentos o selecionam automaticamente em algoritmos de reconstrução de tecidos de alta densidade.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">Foco largo</div>
+                    <h4>Doses de alta potência</h4>
+                    <p>Filamento maior, associado ao segundo ponto focal do tubo — empregado nas exposições de maior potência, suportando a carga térmica das doses mais altas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row reveal">
+            <div class="col-12 mb-4">
+                <div class="matrix-demo-panel">
+                    <div class="gantry-label-row">
+                        <span class="gantry-tag"><span class="dot"></span>Vida útil média do tubo</span>
+                    </div>
+                    <div class="tube-life-bars">
+                        <div class="tube-life-row">
+                            <span class="tube-life-label">3ª geração</span>
+                            <div class="tube-life-track"><div class="tube-life-fill" style="width:16%"></div></div>
+                            <span class="tube-life-value">≈ 80.000 cortes</span>
+                        </div>
+                        <div class="tube-life-row">
+                            <span class="tube-life-label">Helicoidal / multislice</span>
+                            <div class="tube-life-track"><div class="tube-life-fill fill-amber" style="width:100%"></div></div>
+                            <span class="tube-life-value">≈ 500.000 cortes</span>
+                        </div>
+                    </div>
+                    <p class="voxel-caption" style="text-align:left;margin-top:1.1rem;max-width:100%;">A maior exigência térmica dos exames helicoidais e multislice — rotação contínua, sem pausa entre cortes — levou ao desenvolvimento de tubos com vida útil cerca de 6 vezes maior que os da 3ª geração.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="reveal" style="font-size:1.25rem;margin-top:2rem;margin-bottom:0.4rem;">Detectores</h3>
+        <p class="section-sub reveal" style="max-width:760px;">Os detectores são tão importantes quanto o tubo — e o principal fator por trás do alto custo dos tomógrafos atuais. Suas características centrais:</p>
+        <div class="criteria-chips reveal">
+            <span class="criteria-chip">Custo</span>
+            <span class="criteria-chip">Eficiência</span>
+            <span class="criteria-chip">Estabilidade</span>
+            <span class="criteria-chip">Velocidade</span>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6 mb-4 reveal">
+                <div class="detector-type-card">
+                    <div class="def-term">Tipo 1</div>
+                    <h4>Cristais luminescentes</h4>
+                    <p>Cristais de iodeto de sódio acoplados a pequenas câmaras fotomultiplicadoras. Ao interagir com o feixe, emitem luz na razão direta da intensidade da radiação incidente; o tubo fotomultiplicador amplifica esse sinal, transformando-o numa corrente elétrica de pequena intensidade armazenada pelo computador.</p>
+                    <div class="pro-con">
+                        <span class="pro">+ Bastante eficientes</span>
+                        <span class="con">− Fosforescência gera resposta não linear entre tecidos de grande diferença de densidade (ossos e ar, por exemplo)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 reveal">
+                <div class="detector-type-card">
+                    <div class="def-term">Tipo 2</div>
+                    <h4>Câmara de ionização</h4>
+                    <p>Pequenos tubos com gás nobre em seu interior — geralmente xenônio — que, na presença de radiação, sofrem uma ionização temporária suficiente para gerar uma pequena corrente elétrica, proporcional à radiação residual na trajetória do feixe.</p>
+                    <div class="pro-con">
+                        <span class="pro">+ Melhor resposta linear entre estruturas diferentes</span>
+                        <span class="con">− Menos eficientes, pela baixa quantidade de moléculas de gás no interior do detector</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <p class="section-sub" style="max-width:600px;margin-bottom:0.6rem;">Esquema de funcionamento de um detector de cristal luminescente:</p>
+            <div class="process-step-row">
+                <div class="process-step">
+                    <div class="process-num">01</div>
+                    <h4>Raios-X</h4>
+                    <p>O feixe atenuado pelo paciente incide sobre o cristal do detector.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">02</div>
+                    <h4>Cristal luminescente</h4>
+                    <p>O iodeto de sódio absorve a radiação e converte parte dela em luz visível.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">03</div>
+                    <h4>Luz emitida</h4>
+                    <p>A intensidade luminosa é diretamente proporcional à intensidade da radiação incidente.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">04</div>
+                    <h4>Sinal elétrico</h4>
+                    <p>O tubo fotomultiplicador amplifica a luz numa corrente elétrica, lida pelo computador.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="matriz">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">A base de toda imagem tomográfica</div>
+            <h2 class="section-title">A imagem em matriz</h2>
+            <p class="section-sub">Por matriz, entendemos um arranjo de linhas e colunas. A imagem tomográfica é uma imagem matricial: o cruzamento das linhas com as colunas forma os elementos de imagem, chamados individualmente de <b style="color:var(--text-main);">pixel</b>. A espessura do corte é a terceira dimensão, relacionada à profundidade — e o volume formado pelo pixel mais essa espessura é o <b style="color:var(--text-main);">voxel</b>.</p>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">Elemento 2D</div>
+                    <h4>Pixel</h4>
+                    <p>Área resultante da interseção de uma linha com uma coluna da matriz. É a menor unidade da imagem tomográfica — cada pixel recebe um tom de cinza correspondente à densidade do tecido naquele ponto.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">Elemento 3D</div>
+                    <h4>Voxel</h4>
+                    <p>Volume formado pelo pixel somado à espessura do corte. É a verdadeira unidade de dado da tomografia: cada voxel tem um coeficiente de atenuação linear próprio, e o pixel na tela é apenas a sua representação em 2D.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row reveal">
+            <div class="col-lg-7 mb-4">
+                <div class="matrix-demo-panel">
+                    <div class="gantry-label-row">
+                        <span class="gantry-tag"><span class="dot"></span>Resolução da matriz</span>
+                        <span class="motion-badge" id="matrixModeTag">80 × 80</span>
+                    </div>
+                    <div class="matrix-canvas-wrap">
+                        <canvas id="matrixCanvas" width="512" height="512"></canvas>
+                    </div>
+                    <div class="matrix-slider-row">
+                        <label>Arraste para mudar a resolução da matriz</label>
+                        <input type="range" min="0" max="5" step="1" value="0" class="matrix-slider" id="matrixSlider">
+                        <div class="matrix-readout">
+                            <span class="mval" id="matrixValue">80 × 80</span>
+                            <span class="mnote" id="matrixNote">EMI, 1971 — primeira matriz clínica</span>
+                        </div>
+                    </div>
+                    <div class="matrix-stats">
+                        <div class="stat-box">
+                            <div class="stat-label">Total de pixels</div>
+                            <div class="stat-value" id="matrixPixelCount">6.400</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Pixel (campo de 400 mm)</div>
+                            <div class="stat-value" id="matrixPixelSize">≈ 5,0 mm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+                <div class="voxel-panel">
+                    <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="130,36 194,70 130,104 66,70" fill="rgba(8,145,178,0.16)" stroke="#0891b2" stroke-width="1.4"/>
+                        <polygon points="66,70 130,104 130,166 66,132" fill="rgba(8,145,178,0.06)" stroke="#0891b2" stroke-width="1.2"/>
+                        <polygon points="130,104 194,70 194,132 130,166" fill="rgba(8,145,178,0.1)" stroke="#0891b2" stroke-width="1.2"/>
+                        <line x1="98" y1="53" x2="130" y2="20" stroke="#5c6474" stroke-width="1" stroke-dasharray="2 3"/>
+                        <text x="132" y="15" font-family="JetBrains Mono, monospace" font-size="10" fill="#0891b2">pixel (linha × coluna)</text>
+                        <line x1="196" y1="101" x2="228" y2="101" stroke="#5c6474" stroke-width="1" stroke-dasharray="2 3"/>
+                        <text x="200" y="118" font-family="JetBrains Mono, monospace" font-size="10" fill="#b45309">espessura do corte</text>
+                        <text x="72" y="150" font-family="JetBrains Mono, monospace" font-size="11" fill="#161a20" font-weight="700">voxel</text>
+                    </svg>
+                    <p class="voxel-caption">O <b>pixel</b> é a face de cima (a área, em 2D). Ao "puxar" essa área pela espessura do corte, formamos o <b>voxel</b> — o volume de tecido que aquele ponto da imagem realmente representa.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal mt-3">
+            <h3 style="font-size:1.3rem;margin-bottom:0.4rem;">Como os sinais viram imagem</h3>
+            <p class="section-sub" style="max-width:720px;">Para reconstruir as estruturas em sua forma real, o tomógrafo precisa de múltiplas tomadas de dados em ângulos de projeção diferentes. É esse conjunto de leituras que o computador transforma em imagem.</p>
+            <div class="process-step-row">
+                <div class="process-step">
+                    <div class="process-num">01</div>
+                    <h4>Múltiplas projeções</h4>
+                    <p>O tubo (ou o par tubo-detector) faz dezenas a milhares de leituras em ângulos diferentes ao redor do paciente, a cada corte.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">02</div>
+                    <h4>Cálculo da atenuação</h4>
+                    <p>A partir de cada leitura, o computador calcula o quanto o feixe foi atenuado por cada tecido — o coeficiente de atenuação linear.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">03</div>
+                    <h4>Escala de cinza</h4>
+                    <p>Cada coeficiente de atenuação vira um valor correspondente numa escala de cinzas: quanto mais denso o tecido, mais claro o tom.</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-num">04</div>
+                    <h4>Formação da imagem</h4>
+                    <p>Os valores são distribuídos pelos pixels da matriz. O resultado final é a imagem tomográfica — cada pixel carregando a informação de um voxel inteiro.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="reconstrucao">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">A matemática por trás da imagem</div>
+            <h2 class="section-title">A reconstrução das imagens</h2>
+            <p class="section-sub">A tomografia mede a intensidade da radiação residual depois que o feixe interage com um órgão ou objeto e sensibiliza um detector. Essa intensidade residual é a radiação incidente menos a radiação absorvida pelo objeto.</p>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-lg-7 mb-4 reveal">
+                <div class="formula-box">N&nbsp;=&nbsp;N<sub>0</sub>&nbsp;·&nbsp;e<sup>−μx</sup></div>
+                <ul class="formula-legend">
+                    <li><b>N</b>intensidade de radiação residual</li>
+                    <li><b>N₀</b>intensidade de radiação incidente</li>
+                    <li><b>e</b>base do logaritmo natural (≈2,718)</li>
+                    <li><b>μ</b>coeficiente de atenuação linear</li>
+                    <li><b>x</b>espessura do objeto</li>
+                </ul>
+                <p class="info-desc" style="font-size:0.95rem;margin-top:1.2rem;">A imagem tomográfica é formada por milhares de pequenos blocos — um para cada voxel da matriz —, então essa equação fica mais complexa quanto melhor a resolução. Num equipamento atual, com matriz 512×512, ela poderia ser representada assim:</p>
+                <div class="formula-box">N&nbsp;=&nbsp;N<sub>0</sub>&nbsp;·&nbsp;e<sup>−(μ₁+μ₂+μ₃+...+μ₅₁₂)x</sup></div>
+            </div>
+            <div class="col-lg-5 mb-4 reveal">
+                <div class="diff-callout" style="height:auto;">
+                    <span class="diff-label">Por isso a máquina precisa ser rápida</span>
+                    <p>O número de equações cresce com o número de detectores e de projeções usadas. Em equipamentos de alta resolução, reconstruir uma única imagem pode exigir até <b>200.000 equações</b> — daí a necessidade de um sistema de computação potente e veloz.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal mt-3">
+            <h3 style="font-size:1.3rem;margin-bottom:0.5rem;">Métodos de reconstrução</h3>
+            <p class="section-sub" style="max-width:760px;">O método matemático usado para reconstruir as imagens é chamado de algoritmo. Basicamente três formas de cálculo são usadas para isso:</p>
+
+            <div class="row mt-3">
+                <div class="col-md-4 mb-4">
+                    <div class="detector-type-card">
+                        <div class="def-term">01</div>
+                        <h4>Retro-projeção</h4>
+                        <p>Método teórico, não usado nos equipamentos atuais. Consiste em obter imagens em diferentes projeções e somar os resultados de cada uma. A imagem final mostra o objeto real, mas contaminada pelo efeito das inúmeras projeções — veja o exemplo abaixo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="detector-type-card">
+                        <div class="def-term">02</div>
+                        <h4>Método interativo</h4>
+                        <p>Considera um valor médio de atenuação para cada linha ou coluna da imagem, compara com os resultados obtidos e ajusta — somando e subtraindo densidades — até a reconstrução final. Foi o método usado pelo primeiro tomógrafo EMI; mais nítido que a retro-projeção pura, por eliminar boa parte da contaminação.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="detector-type-card">
+                        <div class="def-term">03</div>
+                        <h4>Método analítico</h4>
+                        <p>Usado em quase todos os equipamentos comerciais. Se divide em dois: a <b style="color:var(--text-main);">análise bidimensional de Fourier</b> (permite ao computador trabalhar com mais velocidade) e a <b style="color:var(--text-main);">retro-projeção filtrada</b> (elimina as frequências responsáveis pelo borramento, deixando a imagem mais nítida).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="backproj-panel">
+                <span class="gantry-tag"><span class="dot"></span>Exemplo: retro-projeção de um objeto em cruz</span>
+                <div class="backproj-profiles">
+                    <div>
+                        <div class="backproj-profile-label">Projeção 01</div>
+                        <div class="backproj-bars">
+                            <div class="backproj-bar" style="height:25%;"><span>2</span></div>
+                            <div class="backproj-bar" style="height:50%;"><span>4</span></div>
+                            <div class="backproj-bar" style="height:100%;"><span>8</span></div>
+                            <div class="backproj-bar" style="height:50%;"><span>4</span></div>
+                            <div class="backproj-bar" style="height:25%;"><span>2</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="backproj-profile-label">Projeção 02</div>
+                        <div class="backproj-bars">
+                            <div class="backproj-bar" style="height:25%;"><span>2</span></div>
+                            <div class="backproj-bar" style="height:50%;"><span>4</span></div>
+                            <div class="backproj-bar" style="height:100%;"><span>8</span></div>
+                            <div class="backproj-bar" style="height:50%;"><span>4</span></div>
+                            <div class="backproj-bar" style="height:25%;"><span>2</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="backproj-grid">
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.12);">4</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.38);">10</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.12);">4</div>
+
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.28);">8</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.48);">12</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.28);">8</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.38);">10</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.48);">12</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.62);">16</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.48);">12</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.38);">10</div>
+
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.28);">8</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.48);">12</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.28);">8</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.12);">4</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.38);">10</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.20);">6</div>
+                    <div class="backproj-cell" style="background:rgba(8,145,178,0.12);">4</div>
+                </div>
+                <p class="backproj-caption">Cada célula é a soma da projeção 01 (por linha) com a projeção 02 (por coluna). O valor mais alto (16) marca o centro da cruz, e o formato em "+" aparece nitidamente — mas repare que os cantos, que deveriam ser zero, ficam com valor 4. Essa é a "contaminação" da retro-projeção: um borramento em estrela que os métodos interativo e analítico existem para corrigir.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="geracoes">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Linha do tempo interativa</div>
+            <h2 class="section-title">Escolha uma geração</h2>
+            <p class="section-sub">Clique em um ano na linha abaixo. O visualizador mostra como o tubo e os detectores se movem naquela geração — essa é literalmente a diferença técnica entre elas.</p>
+        </div>
+
+        <div class="timeline-wrap reveal">
+            <div class="timeline-track">
+                <div class="timeline-fill" id="timelineFill"></div>
+            </div>
+            <div class="timeline-ticks" id="timelineTicks"></div>
+        </div>
+
+        <div class="row reveal">
+            <div class="col-lg-7 mb-4">
+                <div class="gantry-panel">
+                    <div class="gantry-label-row">
+                        <span class="gantry-tag"><span class="dot"></span>Visualizador em tempo real</span>
+                        <span class="motion-badge" id="movementTag">—</span>
+                    </div>
+                    <svg id="gantrySvg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="200" cy="200" r="178" fill="none" stroke="#c1c7d0" stroke-width="10"/>
+                        <circle cx="200" cy="200" r="178" fill="none" stroke="#9aa1ad" stroke-width="1"/>
+                        <path id="fixedRingGuide" fill="none" stroke="#0891b2" stroke-width="1" stroke-dasharray="4 5" opacity="0"/>
+                        <rect id="tableRect" x="30" y="196" width="340" height="8" rx="4" fill="#e6e9ee" stroke="#b8bec8" stroke-width="1"/>
+                        <circle cx="200" cy="200" r="44" fill="#eef0f3" stroke="#c3c8d1" stroke-width="1.5"/>
+                        <circle cx="200" cy="200" r="30" fill="#e2e5ea" stroke="#aab0bb" stroke-width="1"/>
+                        <path id="tungstenArc" d="" fill="none" stroke="#b45309" stroke-width="6" stroke-linecap="round" opacity="0"/>
+                        <g id="trailGroup"></g>
+                        <g id="trailGroup2"></g>
+                        <g id="beamGroup"></g>
+                        <g id="detectorsGroup"></g>
+                        <circle id="tube" cx="200" cy="30" r="8" fill="#b45309"/>
+                        <circle id="tube2" cx="370" cy="200" r="7" fill="#6d28d9" opacity="0"/>
+                        <circle id="sweepPoint" cx="200" cy="200" r="6" fill="#ca8a04" opacity="0"/>
+                    </svg>
+                    <div class="table-motion-note" id="tableMotionNote">
+                        <span class="arrow-shuttle"></span> Mesa em translação contínua
+                    </div>
+                    <div class="gantry-legend">
+                        <span class="legend-item"><span class="legend-swatch sw-tube"></span>Tubo (fonte de raios-X)</span>
+                        <span class="legend-item"><span class="legend-swatch sw-tube2"></span>2º tubo (dual-source)</span>
+                        <span class="legend-item"><span class="legend-swatch sw-det"></span>Detector ativo</span>
+                        <span class="legend-item"><span class="legend-swatch sw-fixed"></span>Detectores fixos</span>
+                        <span class="legend-item"><span class="legend-swatch sw-trail"></span>Trajetória recente</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+                <div class="info-panel">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge-mode" id="infoMode">MODO</span>
+                        <span class="info-year mono" id="infoYear">0000</span>
+                    </div>
+                    <div class="info-title" id="infoTitle">Carregando…</div>
+                    <p class="info-desc" id="infoDesc"></p>
+
+                    <div class="diff-callout">
+                        <span class="diff-label">O que muda nesta geração</span>
+                        <p id="infoDiff"></p>
+                    </div>
+
+                    <div class="info-stats">
+                        <div class="stat-box">
+                            <div class="stat-label">Detectores</div>
+                            <div class="stat-value" id="statDet">—</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Tempo / corte</div>
+                            <div class="stat-value" id="statTime" style="font-size:0.82rem;">—</div>
+                        </div>
+                    </div>
+
+                    <div class="slice-control" id="sliceControl">
+                        <label>Fileiras de detectores (cortes por rotação)</label>
+                        <input type="range" min="4" max="320" step="4" value="4" class="slice-slider" id="sliceSlider">
+                        <div class="slice-readout">
+                            <span><b id="sliceValue">4</b> cortes/rotação</span>
+                            <span id="sliceTimeEstimate">≈ 20s (tórax completo)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="helicoidal-conceitos">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Depois do slip-ring</div>
+            <h2 class="section-title">Os conceitos do TC helicoidal</h2>
+            <p class="section-sub">A aquisição em espiral trouxe três ideias novas para o vocabulário da tomografia. Entender a relação entre elas explica por que a helicoidal — e depois a multislice — ficaram tão mais rápidas.</p>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">01 — Revolução</div>
+                    <h4>Giro completo de 360°</h4>
+                    <p>Um ciclo inteiro de rotação do conjunto tubo-detectores. Quanto menor o tempo de aquisição do corte, maior a velocidade de rotação. Nos TCs helicoidais, o tempo médio de revolução é de aproximadamente 1 segundo.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">02 — Pitch</div>
+                    <h4>Deslocamento ÷ espessura</h4>
+                    <p>Razão entre o deslocamento da mesa e a espessura de corte. Em pitch 1:1, a mesa avança a mesma distância da espessura de corte a cada revolução — cortes de 10 mm deslocam a mesa 10 mm.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">03 — Interpolação</div>
+                    <h4>Preenchendo a hélice</h4>
+                    <p>A aquisição espiral gera dados em forma de hélice, não em planos perfeitos. Para manter a espessura de corte consistente, alguns equipamentos adquirem dados em 180° e o computador interpola o restante.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row reveal">
+            <div class="col-lg-7 mb-4">
+                <div class="pitch-panel">
+                    <div class="gantry-label-row">
+                        <span class="gantry-tag"><span class="dot"></span>Calculadora de pitch</span>
+                    </div>
+                    <div class="pitch-formula">
+                        PITCH =
+                        <span class="frac"><span>deslocamento da mesa</span><span class="bar"></span><span>espessura de corte</span></span>
+                    </div>
+
+                    <div class="pitch-row">
+                        <label>Espessura de corte <b id="pitchThicknessVal">10 mm</b></label>
+                        <input type="range" min="1" max="10" step="1" value="10" class="pitch-slider" id="pitchThickness">
+                    </div>
+                    <div class="pitch-row">
+                        <label>Pitch <b id="pitchRatioVal">1,0 : 1</b></label>
+                        <input type="range" min="5" max="30" step="1" value="10" class="pitch-slider" id="pitchRatio">
+                    </div>
+                    <div class="pitch-row">
+                        <label>Número de cortes desejado <b id="pitchCountVal">20</b></label>
+                        <input type="range" min="5" max="40" step="5" value="20" class="pitch-slider" id="pitchCount">
+                    </div>
+
+                    <div class="pitch-results">
+                        <div class="stat-box">
+                            <div class="stat-label">Mesa por revolução</div>
+                            <div class="stat-value" id="pitchDisplacement">10 mm</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Tempo total (revolução ≈1s)</div>
+                            <div class="stat-value" id="pitchTime">20 s</div>
+                        </div>
+                    </div>
+                    <div class="pitch-note" id="pitchNote">Pitch 1:1 — a mesa se desloca na mesma proporção da espessura de corte a cada revolução.</div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+                <div class="info-panel">
+                    <div class="badge-mode">Espiral</div>
+                    <div class="info-title" style="font-size:1.2rem;">Por que o pitch acelera o exame</div>
+                    <p class="info-desc">Com pitch 2:1, a mesa percorre o dobro da espessura de corte a cada revolução — cobrindo a mesma extensão do paciente em metade das revoluções, e portanto em metade do tempo. Mas cada corte recebe uma fração menor da dose original, o que aumenta o ruído da imagem: é uma troca entre velocidade e qualidade que o operador ajusta conforme a indicação clínica.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="fonte-dupla">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">A geração atual, de perto</div>
+            <h2 class="section-title">Tomografia de fonte dupla</h2>
+            <p class="section-sub">A tecnologia de fonte dupla (Dual Source) foi desenvolvida com o objetivo de superar desafios que ainda persistiam na tomografia computadorizada. Esse desenvolvimento tornou possível produzir imagens diagnósticas do coração e dos vasos coronários sem precisar reduzir artificialmente o ritmo cardíaco do paciente, na maioria dos casos. Graças à resolução temporal desses scanners, velocidades de escaneamento antes inimagináveis passaram a ser alcançadas — um coração batendo pode ser escaneado em frações de segundo, com dose de radiação comparável à de um raio-X convencional.</p>
+            <p class="section-sub">Com a fonte dupla, avanços significativos apareceram em áreas como <b style="color:var(--text-main);">Pediatria</b>, <b style="color:var(--text-main);">Oncologia</b> e <b style="color:var(--text-main);">Cardiologia</b>, além de um espectro clínico amplo — permitindo diagnóstico mais preciso para todo tipo de paciente, independente da condição clínica, idade ou peso.</p>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-7 mb-4 reveal">
+                <h3 style="font-size:1.2rem;margin-bottom:0.5rem;">Avanço tecnológico</h3>
+                <p class="info-desc">O gantry passou a incorporar dois sistemas de medição, posicionados a 90 graus um do outro, para alcançar maiores resoluções temporais e informações espectrais da imagem. Com dois tubos de raios-X e dois detectores num único sistema, foram lançadas as bases da TC de fonte dupla: os dois tubos e detectores giram juntos ao redor do paciente, adquirindo informações de imagem duas vezes mais rápido do que os scanners de fonte única.</p>
+                <p class="info-desc" style="margin-top:0.9rem;">Quando os dois tubos geram radiação em níveis de energia diferentes — a voltagem de um fixada em 80 kV e a do outro em 140 kV, por exemplo —, o procedimento é chamado de <b style="color:var(--text-main);">imagem de energia dual espectral</b>. Essa técnica permite diferenciar os materiais do corpo (tecidos, ossos, implantes) com mais precisão, e exibir parâmetros funcionais — como a concentração do meio de contraste nos pulmões, no músculo cardíaco ou em tumores — junto da informação morfológica.</p>
+            </div>
+            <div class="col-lg-5 mb-4 reveal">
+                <div class="method-spotlight">
+                    <span class="gantry-tag"><span class="dot"></span>Fonte dupla em números</span>
+                    <div class="spotlight-facts">
+                        <span class="spotlight-fact">2 tubos de raios-X</span>
+                        <span class="spotlight-fact">2 detectores</span>
+                        <span class="spotlight-fact">90° de defasagem</span>
+                        <span class="spotlight-fact">2× mais rápida que fonte única</span>
+                        <span class="spotlight-fact">80 kV / 140 kV (dual energy)</span>
+                    </div>
+                    <a class="spotlight-link" href="#geracoes">Ver essa geração animada na linha do tempo →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <div class="safety-card" style="max-width:100%;">
+                <h4>O que a fonte dupla reduziu na rotina clínica</h4>
+                <ul class="safety-list" style="columns:2;column-gap:2rem;">
+                    <li>Maior velocidade e qualidade de imagem em todo o campo de medição, com alta especificidade e sensibilidade.</li>
+                    <li>Menos necessidade de <b>beta-bloqueadores</b> na TC cardíaca para controlar o ritmo do coração.</li>
+                    <li>Menos <b>sedação de bebês</b> em exames pediátricos.</li>
+                    <li>Menos dependência da <b>retenção de ar</b> para a imagem do tórax.</li>
+                    <li>Imagem de <b>perfusão</b> integrada com sucesso à rotina clínica.</li>
+                    <li>Redução drástica das <b>doses de radiação</b>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-7 mb-4 reveal">
+                <h3 style="font-size:1.2rem;margin-bottom:0.5rem;">Perfusão dinâmica em oncologia</h3>
+                <p class="info-desc">Em oncologia, as terapias podem ser adaptadas individualmente a cada paciente. No diagnóstico, tratamento e acompanhamento de tumores — como no fígado e no trato gastrointestinal —, terapias individualizadas exigem as informações mais detalhadas possíveis sobre parâmetros como fluxo sanguíneo, volume sanguíneo, tempo de fluxo e permeabilidade.</p>
+                <p class="info-desc" style="margin-top:0.9rem;">Com os equipamentos mais recentes, exames de perfusão passaram a ser possíveis em doses não superiores às usadas em exames multifásicos convencionais do abdômen. Detectores de nova geração, combinados a sistemas adaptativos de blindagem da dose, permitem reduzir em até 50% a dose de radiação para imagens 4D em comparação a outros modelos modernos de TC.</p>
+            </div>
+            <div class="col-lg-5 mb-4 reveal">
+                <div class="matrix-demo-panel">
+                    <div class="gantry-label-row">
+                        <span class="gantry-tag"><span class="dot"></span>Dose para imagem 4D</span>
+                    </div>
+                    <div class="tube-life-bars">
+                        <div class="tube-life-row">
+                            <span class="tube-life-label">TC 4D convencional</span>
+                            <div class="tube-life-track"><div class="tube-life-fill" style="width:100%"></div></div>
+                            <span class="tube-life-value">30–40 mSv</span>
+                        </div>
+                        <div class="tube-life-row">
+                            <span class="tube-life-label">Com fonte dupla</span>
+                            <div class="tube-life-track"><div class="tube-life-fill fill-amber" style="width:38%"></div></div>
+                            <span class="tube-life-value">12–15 mSv</span>
+                        </div>
+                    </div>
+                    <div class="spotlight-facts" style="margin-top:1.1rem;">
+                        <span class="spotlight-fact">até 50% menos dose</span>
+                        <span class="spotlight-fact">cobertura de até 22 cm</span>
+                        <span class="spotlight-fact">órgãos inteiros numa varredura</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.2rem;margin-bottom:0.5rem;">Informações funcionais sobre a eficiência do músculo cardíaco</h3>
+            <p class="section-sub" style="max-width:760px;">A angiografia por tomografia computadorizada coronariana (cTCA) é um método-chave não invasivo para detectar doença arterial coronária. Mas, diante de lesões moderadas, a importância hemodinâmica das estenoses coronarianas é decisiva para saber se o paciente se beneficiaria de uma revascularização miocárdica.</p>
+            <div class="diff-callout" style="max-width:760px;">
+                <span class="diff-label">Perfusão do miocárdio + cTCA</span>
+                <p>Ao realizar um exame de perfusão do miocárdio por TC junto com a cTCA, o cardiologista obtém informações sobre o fluxo e o volume de sangue no músculo cardíaco, distinguindo com confiabilidade tecido saudável de tecido danificado. Após a administração do meio de contraste, a imagem dinâmica de perfusão adquire múltiplos conjuntos de dados ao longo do tempo para determinar com precisão a perfusão miocárdica — por isso, varreduras adicionais ou imagens híbridas muitas vezes deixam de ser necessárias.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="comparativo">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Visão geral</div>
+            <h2 class="section-title">Comparativo entre gerações</h2>
+            <p class="section-sub">Clique em qualquer linha para reabrir aquela geração no visualizador acima.</p>
+        </div>
+        <div class="compare-wrap mt-4 reveal" style="overflow-x:auto;">
+            <table class="ct-table">
+                <thead>
+                <tr>
+                    <th>Geração</th>
+                    <th>Ano</th>
+                    <th>Movimento</th>
+                    <th>Detectores (aprox.)</th>
+                    <th>Tempo / corte</th>
+                </tr>
+                </thead>
+                <tbody id="compareBody"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="hounsfield">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Como a imagem vira número — e de volta em imagem</div>
+            <h2 class="section-title">A escala de Hounsfield</h2>
+            <p class="section-sub">Sendo a tomografia um método que mede a radiação residual, ela também avalia a densidade entre os diferentes tecidos. Para isso, adota-se uma escala de densidades — a escala de Hounsfield — em que o valor zero é atribuído à densidade da água. Tecidos mais densos que a água recebem valores positivos; os menos densos, valores negativos. A escala vai de −1000 (ar) a +1000 (chumbo).</p>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-7 mb-4 reveal">
+                <div class="hu-legend-bar">
+                    <div class="hu-legend-title">Escala de Hounsfield</div>
+                    <div class="hu-legend-labels">
+                        <span>Ar</span><span>Gordura</span><span>Água</span><span>Partes moles</span><span>Osso</span>
+                    </div>
+                    <div class="hu-legend-gradient"></div>
+                    <div class="hu-legend-values">
+                        <span>−1000</span><span>−100</span><span>0</span><span>+50</span><span>+1000</span>
+                    </div>
+                    <div class="hu-legend-arrow">
+                        <div class="line"></div>
+                        <span class="mono" style="font-size:0.75rem;">HU</span>
+                        <div class="line"></div>
+                    </div>
+                    <div class="hu-legend-caption">Hounsfield units (HU)</div>
+                </div>
+            </div>
+            <div class="col-lg-5 mb-4 reveal">
+                <div class="hu-explorer">
+                    <div class="gantry-label-row">
+                        <span class="gantry-tag"><span class="dot"></span>Explorador de HU</span>
+                    </div>
+                    <input type="range" min="-1000" max="1000" step="10" value="0" class="hu-slider" id="huSlider">
+                    <div class="hu-explorer-readout">
+                        <div class="hu-swatch" id="huSwatch"></div>
+                        <div>
+                            <div class="hu-explorer-value" id="huValue">0 HU</div>
+                            <div class="hu-explorer-tissue" id="huTissue">Água</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal hu-table-wrap">
+            <div class="compare-wrap" style="overflow-x:auto;">
+                <table class="ct-table">
+                    <thead>
+                    <tr><th>Unidades Hounsfield (HU)</th><th>Tecido</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td class="mono">300 a 1000</td><td>Osso denso / cortical</td></tr>
+                    <tr><td class="mono">100 a 200</td><td>Osso normal</td></tr>
+                    <tr><td class="mono">60</td><td>Fígado</td></tr>
+                    <tr><td class="mono">50</td><td>Pâncreas</td></tr>
+                    <tr><td class="mono">36</td><td>Parênquima cerebral</td></tr>
+                    <tr><td class="mono">20</td><td>Músculo</td></tr>
+                    <tr><td class="mono">0</td><td>Água</td></tr>
+                    <tr><td class="mono">−20 a −80</td><td>Gordura</td></tr>
+                    <tr><td class="mono">−500 a −800</td><td>Pulmão</td></tr>
+                    <tr><td class="mono">−1000</td><td>Ar</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.3rem;margin-bottom:0.5rem;">Nível e largura da janela (WL / WW)</h3>
+            <p class="section-sub" style="max-width:760px;">A documentação tomográfica é a última etapa do exame — e uma boa documentação pode ser decisiva para a correta interpretação do estudo. As imagens são documentadas considerando qual tecido é o assunto de maior interesse, evidenciando o contraste na medida do possível. O tecido de interesse é definido pelo <b style="color:var(--text-main);">nível da imagem (Window Level — WL)</b>; o contraste depende da <b style="color:var(--text-main);">largura da janela (Window Width — WW)</b>. Janelas muito amplas geram imagens acinzentadas e de baixo contraste, mas podem mostrar mais estruturas ao mesmo tempo.</p>
+
+            <div class="row mt-3">
+                <div class="col-lg-5 mb-4">
+                    <div class="window-panel">
+                        <div class="gantry-label-row">
+                            <span class="gantry-tag"><span class="dot"></span>Simulação de janela</span>
+                        </div>
+                        <div class="matrix-canvas-wrap">
+                            <canvas id="windowCanvas" width="512" height="512"></canvas>
+                        </div>
+                        <div class="window-preset-row">
+                            <button type="button" class="window-preset-btn" id="presetClosed">Janela "fechada" — alto contraste</button>
+                            <button type="button" class="window-preset-btn" id="presetOpen">Janela "aberta" — baixo contraste</button>
+                        </div>
+                        <div class="window-slider-row">
+                            <label>Nível da janela (WL) <b id="wlVal">40 HU</b></label>
+                            <input type="range" min="-200" max="600" step="10" value="40" class="matrix-slider" id="wlSlider">
+                        </div>
+                        <div class="window-slider-row">
+                            <label>Largura da janela (WW) <b id="wwVal">400 HU</b></label>
+                            <input type="range" min="50" max="1600" step="10" value="400" class="matrix-slider" id="wwSlider">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 mb-4">
+                    <div class="info-panel">
+                        <div class="badge-mode">Documentação</div>
+                        <div class="info-title" style="font-size:1.2rem;">Janela fechada x janela aberta</div>
+                        <p class="info-desc">Reduza a largura da janela (WW) e a imagem ganha contraste — as estruturas próximas ao nível (WL) escolhido se separam claramente, mas tudo o que estiver fora da faixa vira preto ou branco puro ("janela fechada"). Aumente a largura e a imagem fica acinzentada, de baixo contraste, porém mostrando simultaneamente estruturas de densidades bem diferentes — do osso ao tecido mole ("janela aberta"). Ajustar o WL desloca qual tecido fica no centro dessa faixa de contraste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="fov-artefatos">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Definição, área de exame e imperfeições</div>
+            <h2 class="section-title">Resolução, campo de visão e artefatos</h2>
+            <p class="section-sub">A resolução — o grau de definição da imagem — está diretamente ligada à matriz utilizada: quanto maior a matriz, melhor a resolução, porque os pixels ficam com dimensões menores.</p>
+            <a class="spotlight-link" href="#matriz">Reveja o comparativo de resolução da matriz ↑</a>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.25rem;margin-bottom:0.4rem;">Campo de visão (FOV — Field of View)</h3>
+            <p class="section-sub" style="max-width:760px;">O campo de visão na TC é um parâmetro crítico: representa a extensão da anatomia visualizada durante a aquisição dos dados tomográficos, e tem implicações diretas na prática clínica. Escolher o FOV adequado é essencial para garantir que a região de interesse seja completamente abrangida, permitindo uma avaliação completa da anatomia investigada.</p>
+            <p class="section-sub" style="max-width:760px;">Um campo de visão mais amplo é útil para examinar estruturas extensas, dando uma visão global da área. Já em situações que exigem detalhes mais finos, um campo de visão mais estreito costuma ser preferível, concentrando a resolução numa área específica. A escolha também está ligada à dose de radiação: FOVs mais amplos geralmente implicam maior exposição, enquanto FOVs mais estreitos podem permitir reduzir a dose — algo especialmente relevante quando o foco é a otimização de dose.</p>
+
+            <div class="matrix-demo-panel">
+                <div class="fov-row">
+                    <div class="fov-item">
+                        <div class="fov-circle" style="width:56px;height:56px;"></div>
+                        <span class="fov-region">Face</span>
+                        <span class="fov-value">14 cm</span>
+                    </div>
+                    <div class="fov-item">
+                        <div class="fov-circle" style="width:56px;height:56px;"></div>
+                        <span class="fov-region">Coluna</span>
+                        <span class="fov-value">14 cm</span>
+                    </div>
+                    <div class="fov-item">
+                        <div class="fov-circle" style="width:72px;height:72px;"></div>
+                        <span class="fov-region">Joelho</span>
+                        <span class="fov-value">18 cm</span>
+                    </div>
+                    <div class="fov-item">
+                        <div class="fov-circle" style="width:88px;height:88px;"></div>
+                        <span class="fov-region">Crânio</span>
+                        <span class="fov-value">22 cm</span>
+                    </div>
+                    <div class="fov-item">
+                        <div class="fov-circle" style="width:140px;height:140px;"></div>
+                        <span class="fov-region">Tórax</span>
+                        <span class="fov-value">35 cm</span>
+                    </div>
+                    <div class="fov-item">
+                        <div class="fov-circle" style="width:160px;height:160px;"></div>
+                        <span class="fov-region">Abdômen</span>
+                        <span class="fov-value">40 cm</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-lg-7 mb-4">
+                    <p class="info-desc">O FOV é definido como o produto entre o tamanho do pixel e o tamanho da matriz de reconstrução. Isolando o tamanho do pixel, chegamos à fórmula que liga os três conceitos que já vimos nesta aula — FOV, matriz e pixel:</p>
+                    <div class="formula-box">d&nbsp;=&nbsp;FOV&nbsp;÷&nbsp;tamanho da matriz</div>
+                    <p class="info-desc" style="margin-top:0.6rem;">Onde <b style="color:var(--text-main);">d</b> é o tamanho do pixel (e, considerando a espessura de corte, também define o tamanho do voxel). Quanto maior o FOV para a mesma matriz, maior cada pixel — e menor a resolução espacial da imagem.</p>
+                </div>
+                <div class="col-lg-5 mb-4">
+                    <div class="matrix-demo-panel">
+                        <div class="gantry-label-row">
+                            <span class="gantry-tag"><span class="dot"></span>Calculadora de tamanho do pixel</span>
+                        </div>
+                        <div class="matrix-slider-row">
+                            <label>Campo de visão (FOV) <b id="fovCalcVal" style="color:var(--cyan);">40 cm</b></label>
+                            <input type="range" min="10" max="50" step="1" value="40" class="matrix-slider" id="fovCalcSlider">
+                        </div>
+                        <div class="matrix-slider-row">
+                            <label>Matriz <b id="fovMatrixVal" style="color:var(--cyan);">512 × 512</b></label>
+                            <input type="range" min="0" max="5" step="1" value="5" class="matrix-slider" id="fovMatrixSlider">
+                        </div>
+                        <div class="matrix-stats">
+                            <div class="stat-box">
+                                <div class="stat-label">Tamanho do pixel (d)</div>
+                                <div class="stat-value" id="fovPixelSize">0,78 mm</div>
+                            </div>
+                        </div>
+                        <div class="window-preset-row" style="flex-wrap:wrap;">
+                            <button type="button" class="window-preset-btn" data-fov="22">Crânio 22cm</button>
+                            <button type="button" class="window-preset-btn" data-fov="35">Tórax 35cm</button>
+                            <button type="button" class="window-preset-btn" data-fov="40">Abdômen 40cm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="section-sub" style="max-width:760px;">Avanços tecnológicos recentes trouxeram opções dinâmicas de ajuste do campo de visão durante a própria aquisição, dando flexibilidade valiosa ao profissional para atender desde exames de rotina até investigações mais especializadas. No fim, escolher o FOV é sempre um equilíbrio entre três variáveis: cobertura anatômica, resolução espacial e dose de radiação.</p>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.25rem;margin-bottom:0.4rem;">Artefatos</h3>
+            <p class="section-sub" style="max-width:760px;">Imperfeições que aparecem na imagem sem corresponder a estruturas reais do paciente. As mais comuns:</p>
+            <div class="row mt-3">
+                <div class="col-md-4 mb-4">
+                    <div class="detector-type-card">
+                        <div class="def-term">Anel (Ring artifact)</div>
+                        <h4>Problema de calibração</h4>
+                        <p>Os detectores precisam de calibração com o "ar" para reconhecer os demais tecidos; quando perdem esse valor de referência, surgem artefatos em forma de anel. O primeiro procedimento do operador é recalibrar os detectores — a maioria dos equipamentos modernos exige apenas uma calibração diária.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="detector-type-card">
+                        <div class="def-term">Alta densidade (Strike)</div>
+                        <h4>Metais e implantes</h4>
+                        <p>Objetos metálicos, obturações dentárias e projéteis produzem artefatos lineares de alta densidade, pelo alto coeficiente de atenuação linear. Usar feixes de alta energia (120/140 kV) atenua o efeito, mas não o evita. Meios de contraste de alto número atômico (iodo, bário) em alta concentração se comportam de forma parecida e devem ser usados com critério.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="detector-type-card">
+                        <div class="def-term">Ruído da imagem</div>
+                        <h4>Granulosidade</h4>
+                        <p>Ocorre principalmente com feixes de baixa energia ou objetos grandes, como em pacientes obesos. A correção passa por aumentar a dose de exposição — subindo a kilovoltagem, a miliamperagem ou o tempo de exposição.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="seguranca">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Antes de operar o equipamento</div>
+            <h2 class="section-title">Aspectos de segurança</h2>
+            <p class="section-sub">O tomógrafo opera com raios-X e exige os cuidados de proteção radiológica previstos na <b style="color:var(--text-main);">RDC nº 330</b>, de 20/12/2019, da Agência Nacional de Vigilância Sanitária (ANVISA) — atualizada pelas RDC 440/2020 e RDC 611/2022, sem mudanças significativas. A RDC 330 revogou a antiga Portaria 453/1998 e passou a trazer, além das diretrizes básicas de radioproteção, uma Instrução Normativa específica para cada modalidade de imagem, incluindo a tomografia computadorizada.</p>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4 reveal">
+                <div class="safety-card">
+                    <h4>Equipamento e radioproteção</h4>
+                    <ul class="safety-list">
+                        <li>O tubo deve ser <b>aquecido (warm-up)</b> após 2 horas de inatividade — prolonga sua vida útil.</li>
+                        <li>Depois do aquecimento, calibrar os detectores <b>ao menos uma vez ao dia</b> — evita artefatos, especialmente os anelares.</li>
+                        <li>Em equipamentos com laser de posicionamento, cuidado para <b>não direcionar o feixe luminoso aos olhos</b> do paciente.</li>
+                        <li>Respeitar o <b>limite de peso</b> da mesa estipulado pelo fabricante, evitando danos e falhas no deslocamento.</li>
+                        <li>Usar os mecanismos de emergência que interrompem a alimentação elétrica do gantry/mesa em caso de <b>fumaça, fogo ou faíscas</b>.</li>
+                        <li>Problemas de software: fazer o <b>shutdown</b> completo, aguardar e reiniciar (<b>startup</b>); persistindo, contatar o fabricante.</li>
+                        <li>Cuidado especial com <b>angulações do gantry</b> — o paciente pode ter parte do corpo pressionada ou sentir fobia pela proximidade do equipamento.</li>
+                        <li>Profissionais ocupacionalmente expostos fazem <b>reciclagem anual</b> em proteção radiológica, dentro do Programa de Educação Permanente previsto na RDC 330.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal">
+                <div class="safety-card">
+                    <h4>Ergonomia do operador</h4>
+                    <ul class="safety-list">
+                        <li>A postura correta evita doenças ocupacionais como a <b>LER</b>.</li>
+                        <li>O monitor deve ficar na <b>altura dos olhos</b>, a uma distância entre <b>40 e 80 cm</b>.</li>
+                        <li>Os pés devem ficar totalmente apoiados no chão ou num suporte para esse fim.</li>
+                        <li>As mãos deslizam livres sobre o teclado, com os antebraços formando um ângulo de <b>~90°</b> com os braços.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal">
+                <div class="safety-card">
+                    <h4>Controle de qualidade</h4>
+                    <ul class="safety-list">
+                        <li>Testes periódicos devem cobrir: <b>espessura de corte</b>, <b>resolução espacial</b>, <b>ruído da imagem</b> e <b>precisão da lâmpada laser</b>.</li>
+                        <li>Normalmente feitos com <b>fantomas</b> específicos, que já acompanham o equipamento.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.25rem;margin-bottom:0.4rem;">Dose de radiação</h3>
+            <p class="section-sub" style="max-width:760px;">A RDC 330 exige que as doses usadas em cada exame sejam <b style="color:var(--text-main);">otimizadas</b> — o princípio geral da radioproteção é o ALARA (<i>as low as reasonably achievable</i>): a menor dose capaz de responder à pergunta clínica. Para comparar exames entre si, usa-se a <b style="color:var(--text-main);">dose efetiva</b>, medida em milisieverts (mSv), que varia bastante conforme a região do corpo examinada:</p>
+
+            <div class="row mt-3">
+                <div class="col-lg-7 mb-4">
+                    <div class="matrix-demo-panel">
+                        <div class="gantry-label-row">
+                            <span class="gantry-tag"><span class="dot"></span>Dose efetiva típica por exame</span>
+                        </div>
+                        <div class="tube-life-bars">
+                            <div class="tube-life-row">
+                                <span class="tube-life-label">TC de crânio</span>
+                                <div class="tube-life-track"><div class="tube-life-fill" style="width:13%"></div></div>
+                                <span class="tube-life-value">≈ 1,6 mSv</span>
+                            </div>
+                            <div class="tube-life-row">
+                                <span class="tube-life-label">TC de tórax</span>
+                                <div class="tube-life-track"><div class="tube-life-fill fill-amber" style="width:68%"></div></div>
+                                <span class="tube-life-value">≈ 8,4 mSv</span>
+                            </div>
+                            <div class="tube-life-row">
+                                <span class="tube-life-label">TC de abdômen/pelve</span>
+                                <div class="tube-life-track"><div class="tube-life-fill fill-amber" style="width:100%"></div></div>
+                                <span class="tube-life-value">≈ 12,3 mSv</span>
+                            </div>
+                        </div>
+                        <p class="voxel-caption" style="text-align:left;margin-top:1.1rem;max-width:100%;">Valores médios de estudos brasileiros — servem como referência de grandeza, não como norma; cada serviço deve comparar suas próprias doses aos níveis de referência diagnóstica (NRD) publicados.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 mb-4">
+                    <div class="diff-callout" style="height:auto;">
+                        <span class="diff-label">O que aparece no console do tomógrafo</span>
+                        <p><b>CTDIvol</b> (mGy) indica a dose por rotação, medida em fantomas padronizados de crânio ou corpo. <b>DLP</b> — Dose-Length Product (mGy·cm) — multiplica o CTDIvol pelo comprimento total escaneado, e é o que se converte em dose efetiva (mSv). Comparar esses números aos <b>NRDs</b> (níveis de referência diagnóstica) é o que permite identificar, exame a exame, se a dose aplicada está dentro do esperado ou merece revisão do protocolo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-scan">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <span>Aula 01 · Introdução à Tomografia Computadorizada</span>
+            <span class="mono">HTML5 · CSS3 · Bootstrap 4 · JavaScript</span>
+        </div>
+        <div class="footer-contact">
+            <span class="footer-author">Benito Moran</span>
+            <a class="footer-link" href="https://www.linkedin.com/in/benito-moran-950903353/" target="_blank" rel="noopener noreferrer">
+                <span class="footer-icon-badge">in</span> LinkedIn
+            </a>
+            <a class="footer-link" href="mailto:benradiologia@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                benradiologia@gmail.com
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+
+<script src="js/script.js"></script>
+</body>
+</html>

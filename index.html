@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomografia Computadorizada — Introdução</title>
+    <title>Tomografia Computadorizada — Da 1ª Geração ao Multislice</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-expand-md navbar-scan fixed-top py-3">
     <div class="container">
-        <a class="navbar-brand" href="#top">CT<span>·</span>Introdução</a>
+        <a class="navbar-brand" href="#top">CT<span>·</span>AULA 01</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" style="border-color:#e2e6eb;">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,6 +42,7 @@
                 <li class="nav-item"><a class="nav-link" href="#hounsfield">Escala HU</a></li>
                 <li class="nav-item"><a class="nav-link" href="#fov-artefatos">FOV e artefatos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#seguranca">Segurança</a></li>
+                <li class="nav-item"><a class="nav-link" href="#protocolo-cranio">Protocolo: crânio</a></li>
             </ul>
         </div>
     </div>
@@ -1131,10 +1132,113 @@
     </div>
 </section>
 
+<section class="section-pad" id="protocolo-cranio">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Protocolos de exame</div>
+            <h2 class="section-title">Posicionamento de crânio</h2>
+            <p class="section-sub">A tomografia de crânio está indicada em:</p>
+            <div class="indication-chips">
+                <span class="criteria-chip">Tumores do encéfalo</span>
+                <span class="criteria-chip">Processos infecciosos</span>
+                <span class="criteria-chip">Doenças vasculares</span>
+                <span class="criteria-chip">Doenças degenerativas</span>
+                <span class="criteria-chip">Trauma crânio-encefálico</span>
+                <span class="criteria-chip">Malformações</span>
+            </div>
+            <p class="section-sub" style="margin-top:1rem;">A entrevista prévia do paciente ajuda a escolher o protocolo adequado e avaliar a viabilidade do uso de meio de contraste.</p>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.2rem;margin-bottom:0.5rem;">Contraste</h3>
+            <p class="info-desc">O contraste é usado sempre que há ruptura da barreira hemato-encefálica — como em tumores vascularizados e processos infecciosos —, ou quando o objetivo é contrastar vasos arteriais e/ou venosos. O meio utilizado é à base de iodo, com preferência pelos <b style="color:var(--text-main);">não iônicos</b>, pela menor toxicidade. O volume é determinado pelo médico responsável e normalmente não excede 2 ml/kg; no exame de rotina em sistema helicoidal, 1 ml/kg é a taxa mais usada.</p>
+
+            <div class="row mt-3">
+                <div class="col-lg-7 mb-4">
+                    <div class="matrix-demo-panel">
+                        <div class="gantry-label-row">
+                            <span class="gantry-tag"><span class="dot"></span>Calculadora de volume de contraste</span>
+                        </div>
+                        <div class="matrix-slider-row">
+                            <label>Peso do paciente <b id="contrastWeightVal" style="color:var(--cyan);">70 kg</b></label>
+                            <input type="range" min="30" max="130" step="1" value="70" class="matrix-slider" id="contrastWeightSlider">
+                        </div>
+                        <div class="contrast-calc-row">
+                            <div class="stat-box" style="flex:1;">
+                                <div class="stat-label">Rotina helicoidal (1 ml/kg)</div>
+                                <div class="stat-value" id="contrastVol1">70 ml</div>
+                            </div>
+                            <div class="stat-box" style="flex:1;">
+                                <div class="stat-label">Limite máximo (2 ml/kg)</div>
+                                <div class="stat-value" id="contrastVol2">140 ml</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.2rem;margin-bottom:0.5rem;">Posicionamento e cortes</h3>
+            <p class="info-desc">O posicionamento pode variar entre serviços, mas a convenção mais aceita usa como referência cortes paralelos à <b style="color:var(--text-main);">linha órbito-meatal</b>. Os cortes da fossa posterior são mais finos — entre 2 e 3 mm, podendo chegar a 5 mm —, o que reduz os artefatos causados pela massa óssea densa da porção petrosa do temporal. Os cortes supratentoriais costumam ter 8 ou 10 mm. O planejamento cobre entre 15 e 20 cortes, do forame magno até o vértex cerebral.</p>
+
+            <div class="row mt-3">
+                <div class="col-lg-5 mb-4">
+                    <div class="position-diagram-panel">
+                        <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M60 130 Q50 70 100 45 Q150 20 190 55 Q210 75 200 110 Q195 135 175 150 L170 175 L150 175 L148 155 Q120 165 95 155 L88 175 L70 175 L72 148 Q55 140 60 130 Z" fill="#eef0f3" stroke="#aab0bb" stroke-width="1.5"/>
+                            <circle cx="118" cy="88" r="4" fill="#5c6474"/>
+                            <path d="M165 95 Q172 96 176 100" stroke="#5c6474" stroke-width="1.5" fill="none"/>
+                            <line x1="118" y1="88" x2="176" y2="100" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
+                            <text x="120" y="78" font-family="JetBrains Mono, monospace" font-size="9" fill="#b45309">linha órbito-meatal</text>
+                            <rect x="65" y="150" width="130" height="16" fill="rgba(8,145,178,0.14)" stroke="#0891b2" stroke-width="1"/>
+                            <text x="70" y="196" font-family="JetBrains Mono, monospace" font-size="9" fill="#0891b2">fossa posterior · cortes de 2–5 mm</text>
+                            <rect x="62" y="108" width="140" height="40" fill="rgba(109,40,217,0.10)" stroke="#6d28d9" stroke-width="1"/>
+                            <text x="70" y="212" font-family="JetBrains Mono, monospace" font-size="9" fill="#6d28d9">supratentorial · cortes de 8–10 mm</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-lg-7 mb-4">
+                    <div class="diff-callout" style="height:auto;">
+                        <span class="diff-label">Exemplo de cálculo de contraste</span>
+                        <p>Paciente de 70 kg, rotina helicoidal (1 ml/kg): <b>volume de contraste = 70 ml</b>.</p>
+                    </div>
+                    <div class="safety-card" style="margin-top:1rem;">
+                        <h4>Documentação</h4>
+                        <ul class="safety-list">
+                            <li>Exame em duas fases (sem e com contraste): manter o <b>mesmo posicionamento</b> do paciente antes e depois da injeção.</li>
+                            <li><b>1 filme</b> com 19 imagens + SCOUT — série sem contraste.</li>
+                            <li><b>1 filme</b> com 19 imagens + SCOUT — série com contraste.</li>
+                            <li><b>1 filme</b> com janela óssea, se necessário.</li>
+                            <li>Manter o <b>SCOUT com as linhas de referência</b> na primeira exposição de cada filme.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.2rem;margin-bottom:0.5rem;">Janelas de referência</h3>
+            <div class="compare-wrap" style="overflow-x:auto;">
+                <table class="ct-table">
+                    <thead>
+                    <tr><th>Tecido</th><th>Nível (WL)</th><th>Janela (WW)</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>Parênquima</td><td class="mono">36</td><td class="mono">80 a 200</td></tr>
+                    <tr><td>Tecido ósseo</td><td class="mono">250</td><td class="mono">2000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <a class="spotlight-link" href="#hounsfield" style="margin-top:0.8rem;display:inline-flex;">Testar esses valores na simulação de janela ↑</a>
+        </div>
+    </div>
+</section>
+
 <footer class="footer-scan">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
-            <span> Introdução à Tomografia Computadorizada</span>
+            <span> Introdução à Tomografia Computadorizada </span>
             <span class="mono">HTML5 · CSS3 · Bootstrap 4 · JavaScript</span>
         </div>
         <div class="footer-contact">

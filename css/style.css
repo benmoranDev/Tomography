@@ -716,6 +716,19 @@ input[type=range].hu-slider::-moz-range-thumb{
     font-family:var(--font-mono);flex-shrink:0;
 }
 
+/* ---------- protocol / positioning ---------- */
+.indication-chips{display:flex;flex-wrap:wrap;gap:10px;margin:1rem 0 0.5rem;}
+.contrast-calc-row{display:flex;gap:0.9rem;margin-top:1rem;flex-wrap:wrap;}
+.position-diagram-panel{
+    background:var(--bg-panel);border:1px solid var(--border-col);border-radius:12px;
+    padding:1.6rem;
+    backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.position-diagram-panel svg{width:100%;max-width:340px;height:auto;display:block;margin:0 auto;}
+.slice-zone-legend{display:flex;flex-direction:column;gap:0.6rem;margin-top:1.2rem;}
+.slice-zone-item{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted);}
+.slice-zone-swatch{width:14px;height:14px;border-radius:3px;flex-shrink:0;}
+
 @media (prefers-reduced-motion: reduce){
     .scroll-cue i, .gantry-tag .dot{animation:none!important;}
     .aurora-blob{animation:none!important;}

@@ -675,6 +675,18 @@
         requestAnimationFrame(heroFrame);
     }
 
+    /* ---------- contrast volume calculator ---------- */
+    var contrastWeightSlider = document.getElementById('contrastWeightSlider');
+    if(contrastWeightSlider){
+        contrastWeightSlider.addEventListener('input', function(){
+            var kg = parseInt(contrastWeightSlider.value, 10);
+            document.getElementById('contrastWeightVal').textContent = kg + ' kg';
+            document.getElementById('contrastVol1').textContent = (kg * 1) + ' ml';
+            document.getElementById('contrastVol2').textContent = (kg * 2) + ' ml';
+        });
+        contrastWeightSlider.dispatchEvent(new Event('input'));
+    }
+
     /* ---------- FOV / pixel size calculator ---------- */
     var fovCalcSlider = document.getElementById('fovCalcSlider');
     var fovMatrixSlider = document.getElementById('fovMatrixSlider');

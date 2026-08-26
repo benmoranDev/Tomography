@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-expand-md navbar-scan fixed-top py-3">
     <div class="container">
-        <a class="navbar-brand" href="#top">CT<span> · </span>Benito Moran</a>
+        <a class="navbar-brand" href="#top">CT<span>·</span>AULA 01</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" style="border-color:#e2e6eb;">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,6 +43,7 @@
                 <li class="nav-item"><a class="nav-link" href="#fov-artefatos">FOV e artefatos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#seguranca">Segurança</a></li>
                 <li class="nav-item"><a class="nav-link" href="#protocolo-cranio">Protocolo: crânio</a></li>
+                <li class="nav-item"><a class="nav-link" href="protocolo.html">Protocolos completos ↗</a></li>
             </ul>
         </div>
     </div>
@@ -1185,17 +1186,28 @@
             <div class="row mt-3">
                 <div class="col-lg-5 mb-4">
                     <div class="position-diagram-panel">
-                        <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M60 130 Q50 70 100 45 Q150 20 190 55 Q210 75 200 110 Q195 135 175 150 L170 175 L150 175 L148 155 Q120 165 95 155 L88 175 L70 175 L72 148 Q55 140 60 130 Z" fill="#eef0f3" stroke="#aab0bb" stroke-width="1.5"/>
-                            <circle cx="118" cy="88" r="4" fill="#5c6474"/>
-                            <path d="M165 95 Q172 96 176 100" stroke="#5c6474" stroke-width="1.5" fill="none"/>
-                            <line x1="118" y1="88" x2="176" y2="100" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
-                            <text x="120" y="78" font-family="JetBrains Mono, monospace" font-size="9" fill="#b45309">linha órbito-meatal</text>
-                            <rect x="65" y="150" width="130" height="16" fill="rgba(8,145,178,0.14)" stroke="#0891b2" stroke-width="1"/>
-                            <text x="70" y="196" font-family="JetBrains Mono, monospace" font-size="9" fill="#0891b2">fossa posterior · cortes de 2–5 mm</text>
-                            <rect x="62" y="108" width="140" height="40" fill="rgba(109,40,217,0.10)" stroke="#6d28d9" stroke-width="1"/>
-                            <text x="70" y="212" font-family="JetBrains Mono, monospace" font-size="9" fill="#6d28d9">supratentorial · cortes de 8–10 mm</text>
-                        </svg>
+                        <div class="protocol-gallery" style="flex-direction:column;">
+                            <div class="protocol-photo">
+                                <div class="scout-image-wrap static">
+                                    <img src="img/scout-ap.jpg" alt="Scout AP de crânio com planejamento">
+                                    <div class="scout-line line-end" style="top:12%;"></div>
+                                    <div class="scout-line line-start" style="top:82%;"></div>
+                                    <div class="scout-handle handle-end" style="top:12%;">FIM · VÉRTEX</div>
+                                    <div class="scout-handle handle-start" style="top:82%;">INÍCIO · FORAME MAGNO</div>
+                                </div>
+                                <div class="protocol-photo-caption">Scout AP — planejamento do início e fim dos cortes.</div>
+                            </div>
+                            <div class="protocol-photo">
+                                <div class="scout-image-wrap static">
+                                    <img src="img/scout-lateral.jpg" alt="Scout lateral de crânio com planejamento">
+                                    <div class="scout-line line-end" style="top:12%;"></div>
+                                    <div class="scout-line line-start" style="top:82%;"></div>
+                                    <div class="scout-handle handle-end" style="top:12%;">FIM</div>
+                                    <div class="scout-handle handle-start" style="top:82%;">INÍCIO</div>
+                                </div>
+                                <div class="protocol-photo-caption">Scout lateral — mesmo planejamento, outro ângulo.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-7 mb-4">
@@ -1231,6 +1243,8 @@
                 </table>
             </div>
             <a class="spotlight-link" href="#hounsfield" style="margin-top:0.8rem;display:inline-flex;">Testar esses valores na simulação de janela ↑</a>
+            <br>
+            <a class="spotlight-link" href="protocolo.html" style="margin-top:0.6rem;display:inline-flex;">Ver o protocolo técnico completo, com parâmetros de aquisição e fotos de posicionamento ↗</a>
         </div>
     </div>
 </section>
@@ -1238,7 +1252,7 @@
 <footer class="footer-scan">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
-            <span> Introdução à Tomografia Computadorizada </span>
+            <span>Aula 01 · Introdução à Tomografia Computadorizada</span>
             <span class="mono">HTML5 · CSS3 · Bootstrap 4 · JavaScript</span>
         </div>
         <div class="footer-contact">

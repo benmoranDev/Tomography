@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolos de Exame — Tomografia Computadorizada</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="aurora-bg">
+    <div class="aurora-blob blob-cyan"></div>
+    <div class="aurora-blob blob-violet"></div>
+    <div class="aurora-blob blob-amber"></div>
+    <div class="aurora-blob blob-cyan2"></div>
+</div>
+<div class="grid-bg"></div>
+
+<nav class="navbar navbar-expand-md navbar-scan fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">CT<span> · </span>PROTOCOLOS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" style="border-color:#e2e6eb;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navMain">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">← Voltar</a></li>
+                <li class="nav-item"><a class="nav-link" href="#cranio">TC de crânio</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="section-pad protocol-hero">
+    <div class="container">
+        <div class="reveal">
+            <div class="eyebrow" style="font-family:var(--font-mono);color:var(--amber);letter-spacing:3px;font-size:0.78rem;text-transform:uppercase;">Guia de referência prática</div>
+            <h1 style="font-family:var(--font-display);font-weight:700;font-size:2.4rem;margin:0.7rem 0 1rem;">Protocolos de exame</h1>
+            <p class="section-sub" style="max-width:640px;">Parâmetros técnicos, indicações clínicas e diretrizes de posicionamento por região do corpo. Comece pela tomografia de crânio.</p>
+        </div>
+    </div>
+</header>
+
+<section class="section-pad" id="cranio">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Protocolo de exame</div>
+            <h2 class="section-title">TC de crânio</h2>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-lg-6 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">Finalidade do exame</div>
+                    <h4>O que o exame avalia</h4>
+                    <p>Estuda todas as estruturas encefálicas, da base — a partir do forame magno — até o topo: ossos do crânio, cerebelo, ambos os hemisférios cerebrais, vasos e ventrículos.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4 reveal">
+                <div class="matrix-def-card">
+                    <div class="def-term">Indicações</div>
+                    <h4>Quando é solicitado</h4>
+                    <p>Cefaleia, tonturas, neoplasias, suspeita de AVC, hidrocefalias, traumatismo crânio-encefálico (TCE), entre outras.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.2rem;margin-bottom:0.6rem;">Técnicas de aquisição</h3>
+            <div class="matrix-demo-panel">
+                <div class="spec-grid">
+                    <div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral + AP</div></div>
+                    <div class="spec-item"><div class="spec-label">Orientação do corte</div><div class="spec-value">Axial</div></div>
+                    <div class="spec-item"><div class="spec-label">Início dos cortes</div><div class="spec-value">Base do crânio</div></div>
+                    <div class="spec-item"><div class="spec-label">Fim dos cortes</div><div class="spec-value">Topo (vértex)</div></div>
+                    <div class="spec-item"><div class="spec-label">Espessura</div><div class="spec-value">2 mm</div></div>
+                    <div class="spec-item"><div class="spec-label">Intervalo</div><div class="spec-value">1 mm</div></div>
+                    <div class="spec-item"><div class="spec-label">FOV</div><div class="spec-value">Conforme a ROI</div></div>
+                    <div class="spec-item"><div class="spec-label">Rot. time</div><div class="spec-value">0,75 s</div></div>
+                    <div class="spec-item"><div class="spec-label">Pitch</div><div class="spec-value">0,6</div></div>
+                    <div class="spec-item"><div class="spec-label">kV</div><div class="spec-value">120</div></div>
+                    <div class="spec-item"><div class="spec-label">mAs</div><div class="spec-value">180</div></div>
+                    <div class="spec-item"><div class="spec-label">Filtros</div><div class="spec-value">Partes moles / osso</div></div>
+                </div>
+                <p class="voxel-caption" style="text-align:left;margin-top:1.1rem;max-width:100%;">Aquisição em duplo topograma (lateral e AP), varredura axial da base do crânio (forame magno) até o topo, com filtro de osso aplicado quando necessário para complementar a avaliação.</p>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.2rem;margin-bottom:0.6rem;">Planejamento do Scout</h3>
+            <p class="section-sub" style="max-width:760px;">No topograma, marca-se o início e o fim da varredura antes de disparar a aquisição — do forame magno (base) até o vértex (topo). Arraste as linhas coloridas sobre a imagem para ajustar o planejamento e veja a extensão e o número estimado de cortes mudarem em tempo real.</p>
+            <div class="matrix-demo-panel">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>Planejamento interativo</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scoutInteractive">
+                            <img src="img/scout-ap.jpg" alt="Scout AP de crânio para planejamento">
+                            <div class="scout-line line-end" id="lineEnd" style="top:12%;"></div>
+                            <div class="scout-line line-start" id="lineStart" style="top:82%;"></div>
+                            <div class="scout-sweep-real" id="scoutSweep"></div>
+                            <div class="scout-handle handle-end" id="handleEnd" style="top:12%;">FIM · VÉRTEX</div>
+                            <div class="scout-handle handle-start" id="handleStart" style="top:82%;">INÍCIO · FORAME MAGNO</div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — arraste os marcadores ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scoutInteractive2">
+                            <img src="img/scout-lateral.jpg" alt="Scout lateral de crânio para planejamento">
+                            <div class="scout-line line-end" id="lineEnd2" style="top:12%;"></div>
+                            <div class="scout-line line-start" id="lineStart2" style="top:82%;"></div>
+                            <div class="scout-handle handle-end" id="handleEnd2" style="top:12%;">FIM</div>
+                            <div class="scout-handle handle-start" id="handleStart2" style="top:82%;">INÍCIO</div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma lateral — arraste os marcadores ↕</div>
+                    </div>
+                </div>
+                <div class="scout-readout">
+                    <div class="stat-box">
+                        <div class="stat-label">Corte atual</div>
+                        <div class="stat-value"><span id="scoutCurrentSlice">1</span> / <span id="scoutTotalSlices">65</span></div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Extensão planejada</div>
+                        <div class="stat-value" id="scoutRangeMm">≈ 130 mm</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Espessura</div>
+                        <div class="stat-value">2 mm</div>
+                    </div>
+                </div>
+                <p class="voxel-caption" style="text-align:left;margin-top:1.1rem;max-width:100%;">A linha ciano simula a posição do corte avançando entre os marcadores que você definiu. A extensão em mm é uma estimativa (calibrada pela altura típica do crânio na imagem) — use para entender a relação entre planejamento e número de cortes, não como medida clínica exata.</p>
+            </div>
+        </div>
+
+        <div class="reveal mt-4">
+            <h3 style="font-size:1.2rem;margin-bottom:0.6rem;">Posicionamento do paciente</h3>
+            <div class="row">
+                <div class="col-lg-5 mb-4">
+                    <div class="safety-card">
+                        <h4>Região da cabeça</h4>
+                        <ul class="safety-list">
+                            <li><b>Decúbito dorsal</b>, com os braços ao longo do corpo.</li>
+                            <li>Cabeça para dentro do gantry, <b>firmemente posicionada</b> no suporte de crânio.</li>
+                            <li><b>Linha órbito-meatal (LOM) perpendicular</b> à mesa de tomografia.</li>
+                            <li><b>Centralizar os lasers</b> com o crânio, garantindo o alinhamento correto da imagem.</li>
+                            <li>Protocolo de exame: orientar sobre <b>remoção de objetos metálicos</b> e necessidade de jejum, quando aplicável.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7 mb-4">
+                    <div class="protocol-gallery">
+                        <div class="protocol-photo">
+                            <img src="img/posicionamento-cranio-1.jpg" alt="Alinhamento do laser na linha órbito-meatal, vista frontal">
+                            <div class="protocol-photo-caption">Alinhamento do laser com a LOM — vista frontal, marcando o ponto central.</div>
+                        </div>
+                        <div class="protocol-photo">
+                            <img src="img/posicionamento-cranio-2.jpg" alt="Alinhamento do laser na linha órbito-meatal, vista superior">
+                            <div class="protocol-photo-caption">Conferência do alinhamento com o gantry antes do início da varredura.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-scan">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <span>Protocolos de exame · Tomografia Computadorizada</span>
+            <span class="mono">HTML5 · CSS3 · Bootstrap 4 · JavaScript</span>
+        </div>
+        <div class="footer-contact">
+            <span class="footer-author">Benito Moran</span>
+            <a class="footer-link" href="https://www.linkedin.com/in/benito-moran-950903353/" target="_blank" rel="noopener noreferrer">
+                <span class="footer-icon-badge">in</span> LinkedIn
+            </a>
+            <a class="footer-link" href="mailto:benradiologia@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                benradiologia@gmail.com
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+
+<script src="js/protocolo.js"></script>
+</body>
+</html>

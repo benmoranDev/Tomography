@@ -24,26 +24,45 @@
 
 <nav class="navbar navbar-expand-md navbar-scan fixed-top py-3">
     <div class="container">
-        <a class="navbar-brand" href="#top">CT<span>·</span>AULA 01</a>
+        <a class="navbar-brand" href="#top">CT<span>·</span>TOMOGRAFIA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" style="border-color:#e2e6eb;">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navMain">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav align-items-md-center">
                 <li class="nav-item"><a class="nav-link" href="#historia">História</a></li>
-                <li class="nav-item"><a class="nav-link" href="#conceitos">Como funciona</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tubo-detectores">Tubo e detectores</a></li>
-                <li class="nav-item"><a class="nav-link" href="#matriz">Matriz e pixel</a></li>
-                <li class="nav-item"><a class="nav-link" href="#reconstrucao">Reconstrução</a></li>
-                <li class="nav-item"><a class="nav-link" href="#geracoes">Gerações</a></li>
-                <li class="nav-item"><a class="nav-link" href="#helicoidal-conceitos">Pitch</a></li>
-                <li class="nav-item"><a class="nav-link" href="#fonte-dupla">Fonte dupla</a></li>
-                <li class="nav-item"><a class="nav-link" href="#comparativo">Comparativo</a></li>
-                <li class="nav-item"><a class="nav-link" href="#hounsfield">Escala HU</a></li>
-                <li class="nav-item"><a class="nav-link" href="#fov-artefatos">FOV e artefatos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#seguranca">Segurança</a></li>
-                <li class="nav-item"><a class="nav-link" href="#protocolo-cranio">Protocolo: crânio</a></li>
-                <li class="nav-item"><a class="nav-link" href="protocolo.html">Protocolos completos ↗</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navFundamentos" data-toggle="dropdown">Fundamentos</a>
+                    <div class="dropdown-menu" aria-labelledby="navFundamentos">
+                        <a class="dropdown-item" href="#conceitos">Como funciona</a>
+                        <a class="dropdown-item" href="#tubo-detectores">Tubo e detectores</a>
+                        <a class="dropdown-item" href="#matriz">Matriz e pixel</a>
+                        <a class="dropdown-item" href="#reconstrucao">Reconstrução</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navGeracoes" data-toggle="dropdown">Gerações</a>
+                    <div class="dropdown-menu" aria-labelledby="navGeracoes">
+                        <a class="dropdown-item" href="#geracoes">Linha do tempo</a>
+                        <a class="dropdown-item" href="#helicoidal-conceitos">Pitch</a>
+                        <a class="dropdown-item" href="#fonte-dupla">Fonte dupla</a>
+                        <a class="dropdown-item" href="#comparativo">Comparativo</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navPratica" data-toggle="dropdown">Prática clínica</a>
+                    <div class="dropdown-menu" aria-labelledby="navPratica">
+                        <a class="dropdown-item" href="#hounsfield">Escala HU</a>
+                        <a class="dropdown-item" href="#fov-artefatos">FOV e artefatos</a>
+                        <a class="dropdown-item" href="#seguranca">Segurança</a>
+                        <a class="dropdown-item" href="#protocolo-cranio">Protocolo: crânio</a>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a class="nav-link navbar-cta" href="protocolo.html">Protocolos completos ↗</a></li>
             </ul>
         </div>
     </div>

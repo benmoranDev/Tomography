@@ -815,6 +815,54 @@
         renderWindow();
     }
 
+    /* ---------- navbar: active section on scroll ---------- */
+    (function(){
+        var navLinks = Array.prototype.slice.call(
+            document.querySelectorAll('.navbar-nav a.nav-link[href^="#"], .navbar-nav a.dropdown-item[href^="#"]')
+        );
+        if(!navLinks.length) return;
+
+        var linksById = {};
+        navLinks.forEach(function(a){
+            var id = a.getAttribute('href').slice(1);
+            if(!linksById[id]) linksById[id] = [];
+            linksById[id].push(a);
+        });
+
+        function clearActive(){
+            document.querySelectorAll('.navbar-nav .active').forEach(function(el){
+                el.classList.remove('active');
+            });
+        }
+
+        function setActive(id){
+            clearActive();
+            var links = linksById[id];
+            if(!links) return;
+            links.forEach(function(a){
+                a.classList.add('active');
+                var dropdownMenu = a.closest('.dropdown-menu');
+                if(dropdownMenu){
+                    var toggle = dropdownMenu.previousElementSibling;
+                    if(toggle && toggle.classList.contains('dropdown-toggle')){
+                        toggle.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        var navObserver = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){ setActive(entry.target.id); }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+        Object.keys(linksById).forEach(function(id){
+            var section = document.getElementById(id);
+            if(section) navObserver.observe(section);
+        });
+    })();
+
     /* ---------- init ---------- */
     setupGen(gens[0]);
     updateInfoPanel();

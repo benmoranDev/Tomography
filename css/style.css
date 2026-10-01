@@ -430,6 +430,12 @@ input[type=range].pitch-slider::-moz-range-thumb{
     background:rgba(8,145,178,0.08);border:1px solid rgba(8,145,178,0.25);
     padding:5px 12px;border-radius:20px;
 }
+/* chips usados como links (índice rápido do protocolo.html) */
+a.criteria-chip{text-decoration:none;transition:background .15s, border-color .15s;}
+a.criteria-chip:hover,
+a.criteria-chip:focus-visible{
+    background:rgba(8,145,178,0.16);border-color:var(--cyan);color:var(--cyan);text-decoration:none;outline:none;
+}
 
 /* ---------- detector type cards ---------- */
 .detector-type-card{
@@ -757,13 +763,14 @@ input[type=range].hu-slider::-moz-range-thumb{
 }
 
 .protocol-hero{padding:7rem 0 2.5rem;}
+.protocol-hero .safety-card{height:auto;}
 .protocol-nav-link{
     display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);
     font-size:0.8rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;
 }
 .protocol-nav-link:hover{color:var(--cyan);text-decoration:none;}
 
-/* ---------- scout planning ---------- */
+/* ---------- scout planning (ilustração SVG antiga) ---------- */
 .scout-row{display:flex;gap:1.4rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;}
 .scout-panel{flex:1;min-width:180px;max-width:220px;text-align:center;}
 .scout-panel svg{width:100%;height:auto;}
@@ -771,41 +778,14 @@ input[type=range].hu-slider::-moz-range-thumb{
     font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);
     letter-spacing:1px;text-transform:uppercase;margin-top:0.6rem;
 }
-.scout-readout{
-    display:flex;justify-content:center;gap:2.2rem;margin-top:1.4rem;flex-wrap:wrap;
+.scout-svg-bg{
+    width:100%;height:380px;
+    background:radial-gradient(circle at center, #111827 0%, #030712 100%);
+    display:flex;align-items:center;justify-content:center;
 }
-.scout-readout .stat-box{min-width:130px;}
-
-/* ---------- draggable scout planning (real images) ---------- */
-.scout-real-row{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:flex-start;margin-top:1rem;}
-.scout-real-main{flex:1;min-width:220px;}
-.scout-real-side{flex:1;min-width:220px;}
-.scout-image-wrap{
-    position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--border-col);
-    background:#000;user-select:none;-webkit-user-select:none;touch-action:none;
-}
-.scout-image-wrap img{width:100%;display:block;pointer-events:none;-webkit-user-drag:none;}
-.scout-image-wrap.static{opacity:0.92;}
-.scout-line{
-    position:absolute;left:0;right:0;height:0;border-top:2px dashed;
-}
-.scout-line.line-end{border-color:#6d28d9;}
-.scout-line.line-start{border-color:#b45309;}
-.scout-handle{
-    position:absolute;left:50%;transform:translate(-50%,-50%);
-    font-family:var(--font-mono);font-size:0.62rem;font-weight:700;letter-spacing:0.5px;
-    color:#fff;padding:3px 9px;border-radius:12px;cursor:ns-resize;
-    touch-action:none;box-shadow:0 2px 6px rgba(0,0,0,0.35);
-}
-.scout-handle.handle-end{background:#6d28d9;}
-.scout-handle.handle-start{background:#b45309;}
-.scout-sweep-real{
-    position:absolute;left:0;right:0;height:2px;background:#0891b2;
-    box-shadow:0 0 6px rgba(8,145,178,0.8);
-}
-.scout-drag-hint{
-    font-family:var(--font-mono);font-size:0.68rem;color:var(--text-muted);
-    text-align:center;margin-top:0.6rem;
+.scout-svg-bg svg{
+    max-height:340px;width:auto;opacity:0.85;
+    filter:drop-shadow(0 0 6px rgba(6,182,212,0.3));
 }
 
 /* ---------- navbar: dropdowns, active state, cta ---------- */
@@ -844,6 +824,165 @@ input[type=range].hu-slider::-moz-range-thumb{
 }
 @media (max-width:767px){
     .navbar-cta{display:inline-block;margin:0.5rem 0 0;}
+}
+
+/* ==========================================================================
+   SIMULADOR DE SCOUT / CONSOLE DICOM  (bloco único, sem duplicatas)
+   ========================================================================== */
+
+.scout-real-row{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:flex-start;margin-top:1rem;}
+.scout-real-main,
+.scout-real-side{flex:1;min-width:240px;}
+
+/* Moldura do topograma */
+.scout-image-wrap{
+    position:relative;width:100%;min-height:380px;
+    display:flex;justify-content:center;align-items:center;
+    background:#000;border:1px solid #2a2f3a;border-radius:8px;overflow:hidden;
+    user-select:none;-webkit-user-select:none;
+    /* sem touch-action:none aqui: a página continua rolando no celular;
+       o bloqueio de gesto fica só no caixote e nos marcadores (via JS) */
+}
+.scout-image-wrap.static{opacity:0.92;}
+.scout-image-wrap img{
+    display:block;margin:0 auto;width:auto;height:auto;
+    max-width:100%;max-height:420px;object-fit:contain;
+    pointer-events:none;-webkit-user-drag:none;
+}
+
+/* Anotações DICOM nos cantos */
+.dicom-overlay-tl,.dicom-overlay-tr,.dicom-overlay-bl,.dicom-overlay-br{
+    position:absolute;z-index:9;pointer-events:none;
+    font-family:var(--font-mono);font-size:0.68rem;line-height:1.2;
+    color:#e2e8f0;text-shadow:1px 1px 2px #000;
+}
+.dicom-overlay-tl{top:10px;left:12px;}
+.dicom-overlay-tr{top:10px;right:12px;text-align:right;}
+.dicom-overlay-bl{bottom:10px;left:12px;}
+.dicom-overlay-br{bottom:10px;right:12px;text-align:right;}
+
+/* Régua lateral */
+.dicom-ruler{
+    position:absolute;right:18px;top:30%;bottom:30%;width:8px;z-index:5;pointer-events:none;
+    display:flex;flex-direction:column;justify-content:space-between;
+    border-right:2px solid #64748b;
+}
+.dicom-ruler::before,.dicom-ruler::after{
+    content:'';width:6px;height:2px;margin-left:2px;background:#64748b;
+}
+
+/* Caixote de planejamento (Scan Box) */
+.scout-box-overlay{
+    position:absolute;left:10%;width:80%;z-index:6;
+    border:2px solid #eab308;background:rgba(234,179,8,0.08);
+    box-shadow:inset 0 0 10px rgba(234,179,8,0.15);
+    pointer-events:none;           /* o JS liga pointer-events:auto para arrastar */
+    transition:none;               /* sem atraso durante o arrasto */
+}
+.scout-angle-indicator{
+    position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+    font-family:var(--font-mono);font-size:0.7rem;font-weight:700;white-space:nowrap;
+    color:#fff;background:#000;padding:1px 6px;border-radius:3px;border:1px solid #eab308;
+}
+.scout-center-line{
+    position:absolute;top:50%;left:0;right:0;height:0;z-index:7;
+    border-top:1.5px dashed #fef08a;pointer-events:none;
+}
+.scout-center-line::after{
+    content:'';position:absolute;left:50%;top:-5px;transform:translateX(-50%);
+    width:0;height:0;
+    border-left:5px solid transparent;border-right:5px solid transparent;
+    border-bottom:8px solid #38bdf8;
+}
+
+/* Losangos de âncora */
+.scout-diamond-marker{
+    position:absolute;z-index:10;width:14px;height:14px;
+    background:#eab308;border:1px solid #000;
+    transform:translate(-50%,-50%) rotate(45deg);
+    cursor:ns-resize;pointer-events:auto;
+    transition:background-color .15s, transform .15s;
+}
+.scout-diamond-marker:hover,
+.scout-diamond-marker:active{
+    background:#fef08a;transform:translate(-50%,-50%) rotate(45deg) scale(1.25);
+}
+.scout-diamond-marker.tl{top:0;left:0;}
+.scout-diamond-marker.tm{top:0;left:50%;}
+.scout-diamond-marker.tr{top:0;left:100%;}
+.scout-diamond-marker.bl{top:100%;left:0;}
+.scout-diamond-marker.bm{top:100%;left:50%;}
+.scout-diamond-marker.br{top:100%;left:100%;}
+
+/* Linha de varredura do scanner */
+.scout-sweep-real{
+    position:absolute;left:0;right:0;height:2px;z-index:4;pointer-events:none;
+    background:#06b6d4;box-shadow:0 0 8px #06b6d4, 0 0 15px rgba(6,182,212,0.6);
+}
+
+/* Linhas e alças da versão antiga do scout (index.html) */
+.scout-line{position:absolute;left:0;right:0;height:2px;z-index:5;pointer-events:none;}
+.scout-line.line-start{background:#a855f7;border-top:1px dashed #c084fc;}
+.scout-line.line-end{background:#f59e0b;border-top:1px dashed #fbbf24;}
+.scout-handle{
+    position:absolute;left:50%;transform:translate(-50%,-50%);z-index:10;
+    padding:4px 12px;border-radius:20px;cursor:ns-resize;
+    font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:1px;
+    user-select:none;-webkit-user-select:none;touch-action:none;
+    box-shadow:0 2px 8px rgba(0,0,0,0.5);
+    transition:transform .1s ease, box-shadow .1s ease;
+}
+.scout-handle:active{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 4px 14px rgba(0,0,0,0.8);}
+.scout-handle.handle-start{background:#9333ea;color:#fff;border:1px solid #c084fc;}
+.scout-handle.handle-end{background:#d97706;color:#fff;border:1px solid #fbbf24;}
+
+.scout-drag-hint{
+    font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);
+    text-align:center;margin-top:8px;
+}
+
+/* Painel de controles (gerado pelo protocolo.js) */
+.scout-controls-panel{
+    background:var(--bg-panel-2);border:1px solid var(--border-col);
+    border-radius:10px;padding:1.2rem;
+}
+.control-label{
+    display:block;margin-bottom:6px;
+    font-family:var(--font-mono);font-size:0.7rem;letter-spacing:1px;
+    text-transform:uppercase;color:var(--text-muted);
+}
+.scout-select{
+    height:40px;border-radius:6px;
+    background-color:#fff;color:var(--text-main);
+    border:1px solid var(--border-col);
+    font-family:var(--font-mono);font-size:0.85rem;
+}
+.scout-select:focus{
+    background-color:#fff;color:var(--text-main);
+    border-color:var(--cyan);box-shadow:0 0 0 0.2rem rgba(8,145,178,0.2);
+}
+.scout-readout{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;
+}
+/* stat-box só dentro do painel do scout: os da index.html voltam ao estilo original */
+.scout-controls-panel .stat-box{
+    background:#fff;text-align:center;padding:10px 14px;min-width:0;
+}
+.scout-controls-panel .stat-label{font-size:0.66rem;letter-spacing:0.5px;}
+.scout-controls-panel .stat-value{font-size:1.1rem;color:var(--cyan);}
+.scout-controls-panel .btn{
+    border-radius:20px;padding:5px 14px;
+}
+.scout-controls-panel [data-role="feedback"]{margin-top:0.4rem;min-height:1.2em;}
+
+/* Celular */
+@media (max-width:575px){
+    .scout-image-wrap{min-height:260px;}
+    .scout-image-wrap img{max-height:340px;}
+    .scout-real-main,.scout-real-side{min-width:100%;}
+    .dicom-overlay-tl,.dicom-overlay-tr,.dicom-overlay-bl,.dicom-overlay-br{font-size:0.58rem;}
+    .scout-diamond-marker{width:18px;height:18px;}      /* alvo de toque maior */
+    .scout-controls-panel{padding:1rem;}
 }
 
 @media (prefers-reduced-motion: reduce){

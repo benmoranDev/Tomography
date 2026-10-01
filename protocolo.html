@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
 
@@ -25,13 +24,17 @@
 <nav class="navbar navbar-expand-md navbar-scan fixed-top py-3">
     <div class="container">
         <a class="navbar-brand" href="index.html">CT<span> · </span>PROTOCOLOS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" style="border-color:#e2e6eb;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Abrir menu" style="border-color:#e2e6eb;">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navMain">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">← Voltar</a></li>
-                <li class="nav-item"><a class="nav-link" href="#cranio">TC de crânio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#cabeca-pescoco">Cabeça/Pescoço</a></li>
+                <li class="nav-item"><a class="nav-link" href="#coluna">Coluna</a></li>
+                <li class="nav-item"><a class="nav-link" href="#torax-abdomen">Tórax/Abdômen</a></li>
+                <li class="nav-item"><a class="nav-link" href="#membros-superiores">MMSS</a></li>
+                <li class="nav-item"><a class="nav-link" href="#membros-inferiores">MMII</a></li>
             </ul>
         </div>
     </div>
@@ -40,133 +43,1027 @@
 <header class="section-pad protocol-hero">
     <div class="container">
         <div class="reveal">
-            <div class="eyebrow" style="font-family:var(--font-mono);color:var(--amber);letter-spacing:3px;font-size:0.78rem;text-transform:uppercase;">Guia de referência prática</div>
-            <h1 style="font-family:var(--font-display);font-weight:700;font-size:2.4rem;margin:0.7rem 0 1rem;">Protocolos de exame</h1>
-            <p class="section-sub" style="max-width:640px;">Parâmetros técnicos, indicações clínicas e diretrizes de posicionamento por região do corpo. Comece pela tomografia de crânio.</p>
+            <div class="eyebrow" style="font-family:var(--font-mono);color:var(--amber);letter-spacing:3px;font-size:0.78rem;text-transform:uppercase;">Guia Prático Radiotecno Interativo</div>
+            <h1 style="font-family:var(--font-display);font-weight:700;font-size:2.4rem;margin:0.7rem 0 1rem;">Protocolos &amp; Simuladores de Tomografia Computadorizada</h1>
+            <p class="section-sub" style="max-width:680px;">Console DICOM com caixote de planejamento (Scan Box) interativo: arraste o caixote ou as bordas, escolha espessura e incremento, simule a aquisição e teste seu planejamento no modo treino.</p>
+
+            <div class="safety-card mt-4" style="max-width:680px;height:auto;">
+                <h4>Como usar</h4>
+                <ul class="safety-list">
+                    <li><b>Arraste</b> o caixote amarelo (ou os losangos) sobre o topograma. AP e lateral se movem juntos.</li>
+                    <li><b>Simular aquisição</b> mostra a linha do scanner percorrendo o intervalo e contando os cortes.</li>
+                    <li><b>Treinar</b> (crânio, face, órbitas e ATM) sorteia um caixote para você corrigir; <b>Conferir</b> mostra o gabarito.</li>
+                </ul>
+                <p class="mb-0" style="font-size:0.8rem;color:var(--text-muted);">Valores de referência didáticos. Ajuste sempre ao protocolo do seu serviço e ao equipamento.</p>
+            </div>
+
+            <div class="indication-chips mt-4" aria-label="Índice rápido de exames">
+                <a class="criteria-chip" style="text-decoration:none;" href="#cranio">Crânio</a><a class="criteria-chip" style="text-decoration:none;" href="#seios-face">Face e Seios da Face</a><a class="criteria-chip" style="text-decoration:none;" href="#orbitas">Órbitas</a><a class="criteria-chip" style="text-decoration:none;" href="#atm">ATM (Articulação Temporomandibular)</a><a class="criteria-chip" style="text-decoration:none;" href="#mastoides">Mastóides / Ouvidos</a><a class="criteria-chip" style="text-decoration:none;" href="#pescoco">Pescoço</a><a class="criteria-chip" style="text-decoration:none;" href="#coluna-cervical">Coluna Cervical</a><a class="criteria-chip" style="text-decoration:none;" href="#coluna-toracica">Coluna Torácica / Dorsal</a><a class="criteria-chip" style="text-decoration:none;" href="#coluna-lombar">Coluna Lombar</a><a class="criteria-chip" style="text-decoration:none;" href="#torax">Tórax</a><a class="criteria-chip" style="text-decoration:none;" href="#abdomen">Abdômen Total / Pelve</a><a class="criteria-chip" style="text-decoration:none;" href="#pelve">Pelve</a><a class="criteria-chip" style="text-decoration:none;" href="#ombro">Ombro</a><a class="criteria-chip" style="text-decoration:none;" href="#cotovelo">Cotovelo</a><a class="criteria-chip" style="text-decoration:none;" href="#punho">Punho</a><a class="criteria-chip" style="text-decoration:none;" href="#bacia">Bacia</a><a class="criteria-chip" style="text-decoration:none;" href="#joelho">Joelho</a><a class="criteria-chip" style="text-decoration:none;" href="#tornozelo">Tornozelo</a><a class="criteria-chip" style="text-decoration:none;" href="#pe">Pé</a>
+            </div>
         </div>
     </div>
 </header>
 
-<section class="section-pad" id="cranio">
+<!-- ==========================================
+     CABEÇA E PESCOÇO
+     ========================================== -->
+<section class="section-pad" id="cabeca-pescoco">
     <div class="container">
         <div class="reveal">
-            <div class="section-eyebrow">Protocolo de exame</div>
-            <h2 class="section-title">TC de crânio</h2>
+            <div class="section-eyebrow">Região Anatômica</div>
+            <h2 class="section-title">Cabeça e Pescoço</h2>
         </div>
 
-        <div class="row mt-3">
-            <div class="col-lg-6 mb-4 reveal">
-                <div class="matrix-def-card">
-                    <div class="def-term">Finalidade do exame</div>
-                    <h4>O que o exame avalia</h4>
-                    <p>Estuda todas as estruturas encefálicas, da base — a partir do forame magno — até o topo: ossos do crânio, cerebelo, ambos os hemisférios cerebrais, vasos e ventrículos.</p>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4 reveal">
-                <div class="matrix-def-card">
-                    <div class="def-term">Indicações</div>
-                    <h4>Quando é solicitado</h4>
-                    <p>Cefaleia, tonturas, neoplasias, suspeita de AVC, hidrocefalias, traumatismo crânio-encefálico (TCE), entre outras.</p>
-                </div>
-            </div>
+        <div class="safety-card mb-4 reveal">
+            <h4>Preparo e Orientações ao Paciente</h4>
+            <ul class="safety-list">
+                <li><b>Orientar o paciente</b> detalhadamente sobre o procedimento e manutenção de imobilidade.</li>
+                <li><b>Mulheres:</b> Questionar sobre suspeita ou confirmação de gestação.</li>
+                <li><b>Exames sem contraste:</b> Apenas remoção de objetos metálicos da região de interesse. Urgências dispensam preparo prévio.</li>
+                <li><b>Exames com contraste:</b> Remoção de objetos metálicos, levantamento de histórico de alergias e jejum recomendado de 4 a 6 horas.</li>
+            </ul>
         </div>
 
-        <div class="reveal mt-4">
-            <h3 style="font-size:1.2rem;margin-bottom:0.6rem;">Técnicas de aquisição</h3>
-            <div class="matrix-demo-panel">
-                <div class="spec-grid">
-                    <div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral + AP</div></div>
-                    <div class="spec-item"><div class="spec-label">Orientação do corte</div><div class="spec-value">Axial</div></div>
-                    <div class="spec-item"><div class="spec-label">Início dos cortes</div><div class="spec-value">Base do crânio</div></div>
-                    <div class="spec-item"><div class="spec-label">Fim dos cortes</div><div class="spec-value">Topo (vértex)</div></div>
-                    <div class="spec-item"><div class="spec-label">Espessura</div><div class="spec-value">2 mm</div></div>
-                    <div class="spec-item"><div class="spec-label">Intervalo</div><div class="spec-value">1 mm</div></div>
-                    <div class="spec-item"><div class="spec-label">FOV</div><div class="spec-value">Conforme a ROI</div></div>
-                    <div class="spec-item"><div class="spec-label">Rot. time</div><div class="spec-value">0,75 s</div></div>
-                    <div class="spec-item"><div class="spec-label">Pitch</div><div class="spec-value">0,6</div></div>
-                    <div class="spec-item"><div class="spec-label">kV</div><div class="spec-value">120</div></div>
-                    <div class="spec-item"><div class="spec-label">mAs</div><div class="spec-value">180</div></div>
-                    <div class="spec-item"><div class="spec-label">Filtros</div><div class="spec-value">Partes moles / osso</div></div>
-                </div>
-                <p class="voxel-caption" style="text-align:left;margin-top:1.1rem;max-width:100%;">Aquisição em duplo topograma (lateral e AP), varredura axial da base do crânio (forame magno) até o topo, com filtro de osso aplicado quando necessário para complementar a avaliação.</p>
-            </div>
-        </div>
+        <!-- TC DE CRÂNIO -->
+        <div class="matrix-def-card mb-4 reveal" id="cranio">
+            <div class="def-term">TC de Crânio</div>
+            <p><b>Finalidade:</b> Estudar estruturas encefálicas desde a base (forame magno) até o topo do crânio (ossos, cerebelo, hemisférios cerebrais, vasos e ventrículos).</p>
+            <div class="indication-chips"><span class="criteria-chip">Cefaleia</span><span class="criteria-chip">Tonturas</span><span class="criteria-chip">Neoplasias</span><span class="criteria-chip">Suspeita de AVC</span><span class="criteria-chip">Hidrocefalia</span><span class="criteria-chip">TCE</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP (Dual Scan)</div></div><div class="spec-item"><div class="spec-label">Cortes</div><div class="spec-value">Base do crânio ao topo</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">2mm / 1mm</div></div><div class="spec-item"><div class="spec-label">kV / mAs</div><div class="spec-value">120 kV / 180 mAs</div></div><div class="spec-item"><div class="spec-label">Rot. Time / Pitch</div><div class="spec-value">0,75s / 0,6</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Partes Moles e Osso / Axial, 3D</div></div></div>
 
-        <div class="reveal mt-4">
-            <h3 style="font-size:1.2rem;margin-bottom:0.6rem;">Planejamento do Scout</h3>
-            <p class="section-sub" style="max-width:760px;">No topograma, marca-se o início e o fim da varredura antes de disparar a aquisição — do forame magno (base) até o vértex (topo). Arraste as linhas coloridas sobre a imagem para ajustar o planejamento e veja a extensão e o número estimado de cortes mudarem em tempo real.</p>
-            <div class="matrix-demo-panel">
+            <div class="matrix-demo-panel mt-4">
                 <div class="gantry-label-row">
-                    <span class="gantry-tag"><span class="dot"></span>Planejamento interativo</span>
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — CRÂNIO</span>
                 </div>
                 <div class="scout-real-row">
                     <div class="scout-real-main">
-                        <div class="scout-image-wrap" id="scoutInteractive">
-                            <img src="img/scout-ap.jpg" alt="Scout AP de crânio para planejamento">
-                            <div class="scout-line line-end" id="lineEnd" style="top:12%;"></div>
-                            <div class="scout-line line-start" id="lineStart" style="top:82%;"></div>
-                            <div class="scout-sweep-real" id="scoutSweep"></div>
-                            <div class="scout-handle handle-end" id="handleEnd" style="top:12%;">FIM · VÉRTEX</div>
-                            <div class="scout-handle handle-start" id="handleStart" style="top:82%;">INÍCIO · FORAME MAGNO</div>
+                        <div class="scout-image-wrap" id="scout-cranio-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Crânio">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 180mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">CRANIO ROTINA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
                         </div>
-                        <div class="scout-drag-hint">Topograma AP — arraste os marcadores ↕</div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
                     </div>
                     <div class="scout-real-side">
-                        <div class="scout-image-wrap" id="scoutInteractive2">
-                            <img src="img/scout-lateral.jpg" alt="Scout lateral de crânio para planejamento">
-                            <div class="scout-line line-end" id="lineEnd2" style="top:12%;"></div>
-                            <div class="scout-line line-start" id="lineStart2" style="top:82%;"></div>
-                            <div class="scout-handle handle-end" id="handleEnd2" style="top:12%;">FIM</div>
-                            <div class="scout-handle handle-start" id="handleStart2" style="top:82%;">INÍCIO</div>
+                        <div class="scout-image-wrap" id="scout-cranio-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Crânio">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 180mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">CRANIO ROTINA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
                         </div>
-                        <div class="scout-drag-hint">Topograma lateral — arraste os marcadores ↕</div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
                     </div>
                 </div>
-                <div class="scout-readout">
-                    <div class="stat-box">
-                        <div class="stat-label">Corte atual</div>
-                        <div class="stat-value"><span id="scoutCurrentSlice">1</span> / <span id="scoutTotalSlices">65</span></div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Extensão planejada</div>
-                        <div class="stat-value" id="scoutRangeMm">≈ 130 mm</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Espessura</div>
-                        <div class="stat-value">2 mm</div>
-                    </div>
-                </div>
-                <p class="voxel-caption" style="text-align:left;margin-top:1.1rem;max-width:100%;">A linha ciano simula a posição do corte avançando entre os marcadores que você definiu. A extensão em mm é uma estimativa (calibrada pela altura típica do crânio na imagem) — use para entender a relação entre planejamento e número de cortes, não como medida clínica exata.</p>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
             </div>
         </div>
 
-        <div class="reveal mt-4">
-            <h3 style="font-size:1.2rem;margin-bottom:0.6rem;">Posicionamento do paciente</h3>
-            <div class="row">
-                <div class="col-lg-5 mb-4">
-                    <div class="safety-card">
-                        <h4>Região da cabeça</h4>
-                        <ul class="safety-list">
-                            <li><b>Decúbito dorsal</b>, com os braços ao longo do corpo.</li>
-                            <li>Cabeça para dentro do gantry, <b>firmemente posicionada</b> no suporte de crânio.</li>
-                            <li><b>Linha órbito-meatal (LOM) perpendicular</b> à mesa de tomografia.</li>
-                            <li><b>Centralizar os lasers</b> com o crânio, garantindo o alinhamento correto da imagem.</li>
-                            <li>Protocolo de exame: orientar sobre <b>remoção de objetos metálicos</b> e necessidade de jejum, quando aplicável.</li>
-                        </ul>
+        <!-- TC DE FACE E SEIOS DA FACE -->
+        <div class="matrix-def-card mb-4 reveal" id="seios-face">
+            <div class="def-term">TC de Face e Seios da Face</div>
+            <p><b>Finalidade:</b> Estudar estruturas da face e cavidades paranasais (seios maxilares, frontal, esfenóide e etmoidais) do mento ao topo do seio frontal.</p>
+            <div class="indication-chips"><span class="criteria-chip">Sinusopatia</span><span class="criteria-chip">Obstrução nasal</span><span class="criteria-chip">Desvio de septo</span><span class="criteria-chip">Tumores</span><span class="criteria-chip">Traumas</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP (Dual Scan)</div></div><div class="spec-item"><div class="spec-label">Início e Fim</div><div class="spec-value">Seios: 0,5cm abaixo do palato duro ao seio frontal. Face: mento ao seio frontal.</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso e Partes Moles / Axial, Coronal, Sagital, 3D</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — FACE / SEIOS DA FACE</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-seios-face-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Face e Seios da Face">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 72mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">SEIOS FACE<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-seios-face-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Face e Seios da Face">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 72mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">SEIOS FACE<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
                     </div>
                 </div>
-                <div class="col-lg-7 mb-4">
-                    <div class="protocol-gallery">
-                        <div class="protocol-photo">
-                            <img src="img/posicionamento-cranio-1.jpg" alt="Alinhamento do laser na linha órbito-meatal, vista frontal">
-                            <div class="protocol-photo-caption">Alinhamento do laser com a LOM — vista frontal, marcando o ponto central.</div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE ÓRBITAS -->
+        <div class="matrix-def-card mb-4 reveal" id="orbitas">
+            <div class="def-term">TC de Órbitas</div>
+            <p><b>Finalidade:</b> Estudo das estruturas das órbitas (partes moles e estrutura óssea).</p>
+            <div class="indication-chips"><span class="criteria-chip">Visão dupla</span><span class="criteria-chip">Visão turva</span><span class="criteria-chip">Processos inflamatórios</span><span class="criteria-chip">Tumores</span><span class="criteria-chip">Traumas</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP (Dual Scan)</div></div><div class="spec-item"><div class="spec-label">Início e Fim</div><div class="spec-value">0,5cm abaixo a 0,5cm acima da cavidade orbitária</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Partes Moles e Osso / Axial, Coronal, Sagital Oblíqua, 3D</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — ÓRBITAS</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-orbitas-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Órbitas">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 80mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">ORBITAS<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
                         </div>
-                        <div class="protocol-photo">
-                            <img src="img/posicionamento-cranio-2.jpg" alt="Alinhamento do laser na linha órbito-meatal, vista superior">
-                            <div class="protocol-photo-caption">Conferência do alinhamento com o gantry antes do início da varredura.</div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-orbitas-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Órbitas">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 80mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">ORBITAS<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
                         </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
                     </div>
                 </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE ATM (ARTICULAÇÃO TEMPOROMANDIBULAR) -->
+        <div class="matrix-def-card mb-4 reveal" id="atm">
+            <div class="def-term">TC de ATM (Articulação Temporomandibular)</div>
+            <p><b>Finalidade:</b> Avaliação bilateral da dinâmica articular em posições: boca fechada, semi-aberta e abertura máxima.</p>
+            <div class="indication-chips"><span class="criteria-chip">Deslocamento de disco</span><span class="criteria-chip">Artropatia</span><span class="criteria-chip">DTM</span><span class="criteria-chip">Patologias degenerativas</span><span class="criteria-chip">Traumas</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP (Dual Scan)</div></div><div class="spec-item"><div class="spec-label">Início e Fim</div><div class="spec-value">Do mento até 0,5cm acima da ATM</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Posições</div><div class="spec-value">Fechada, semi-aberta e abertura máxima</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — ATM</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-atm-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de ATM (Articulação Temporomandibular)">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 100mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">ATM BOCA FECHADA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-atm-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de ATM (Articulação Temporomandibular)">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 100mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">ATM BOCA FECHADA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE MASTÓIDES / OUVIDOS -->
+        <div class="matrix-def-card mb-4 reveal" id="mastoides">
+            <div class="def-term">TC de Mastóides / Ouvidos</div>
+            <p><b>Finalidade:</b> Estudo do conduto auditivo interno e externo e ossos temporais.</p>
+            <div class="indication-chips"><span class="criteria-chip">Perda auditiva</span><span class="criteria-chip">Labirintite</span><span class="criteria-chip">Otites crônicas</span><span class="criteria-chip">Mastoidite</span><span class="criteria-chip">Tumores</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP (Dual Scan)</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial e Coronal</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — MASTÓIDES</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-mastoides-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Mastóides / Ouvidos">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 150mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">MASTOIDES / TEMPORAL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-mastoides-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Mastóides / Ouvidos">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 150mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">MASTOIDES / TEMPORAL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE PESCOÇO -->
+        <div class="matrix-def-card mb-4 reveal" id="pescoco">
+            <div class="def-term">TC de Pescoço</div>
+            <p><b>Finalidade:</b> Estudo detalhado de partes moles da região cervical, tireoide e linfonodos.</p>
+            <div class="indication-chips"><span class="criteria-chip">Massas cervicais</span><span class="criteria-chip">Linfonodomegalias</span><span class="criteria-chip">Doenças da tireoide</span><span class="criteria-chip">Abscessos</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP (Dual Scan)</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">2mm / 1,5mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Partes Moles / Axial, Coronal, Sagital</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — PESCOÇO</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-pescoco-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Pescoço">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">PESCOCO MOLES<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-pescoco-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Pescoço">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">PESCOCO MOLES<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     PROTOCOLOS DE COLUNA VERTEBRAL
+     ========================================== -->
+<section class="section-pad" id="coluna">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Eixo Axial</div>
+            <h2 class="section-title">Protocolos de Coluna Vertebral</h2>
+        </div>
+
+        <!-- TC DE COLUNA CERVICAL -->
+        <div class="matrix-def-card mb-4 reveal" id="coluna-cervical">
+            <div class="def-term">TC de Coluna Cervical</div>
+            <p><b>Posicionamento:</b> Decúbito dorsal, braços ao longo do corpo, cabeça fixa no suporte articulado.</p>
+            <p><b>Finalidade:</b> Estudo das estruturas ósseas e partes moles de C1 a T1.</p>
+            <div class="indication-chips"><span class="criteria-chip">Trauma</span><span class="criteria-chip">Hérnia discal</span><span class="criteria-chip">Estenose</span><span class="criteria-chip">Pós-cirúrgico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP</div></div><div class="spec-item"><div class="spec-label">Início e Fim</div><div class="spec-value">C1 a T1</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso e Partes Moles / Sagital, Coronal</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — COLUNA CERVICAL</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-coluna-cervical-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Coluna Cervical">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 150mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">COLUNA CERVICAL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-coluna-cervical-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Coluna Cervical">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 150mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">COLUNA CERVICAL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE COLUNA TORÁCICA / DORSAL -->
+        <div class="matrix-def-card mb-4 reveal" id="coluna-toracica">
+            <div class="def-term">TC de Coluna Torácica / Dorsal</div>
+            <p><b>Posicionamento:</b> Decúbito dorsal, braços elevados acima da cabeça, pés entrando no gantry.</p>
+            <p><b>Finalidade:</b> Estudo das vértebras torácicas, canal medular e partes moles paravertebrais.</p>
+            <div class="indication-chips"><span class="criteria-chip">Trauma</span><span class="criteria-chip">Fraturas</span><span class="criteria-chip">Hérnia discal</span><span class="criteria-chip">Deformidades</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">2mm / 1,5mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso e Partes Moles / Sagital, Coronal</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — COLUNA TORÁCICA</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-coluna-toracica-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Coluna Torácica / Dorsal">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 170mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">COLUNA TORACICA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-coluna-toracica-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Coluna Torácica / Dorsal">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 170mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">COLUNA TORACICA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE COLUNA LOMBAR -->
+        <div class="matrix-def-card mb-4 reveal" id="coluna-lombar">
+            <div class="def-term">TC de Coluna Lombar</div>
+            <p><b>Posicionamento:</b> Decúbito dorsal, braços elevados acima da cabeça, pés direcionados ao gantry.</p>
+            <p><b>Finalidade:</b> Estudo das vértebras lombares, discos intervertebrais e canal vertebral.</p>
+            <div class="indication-chips"><span class="criteria-chip">Lombalgia</span><span class="criteria-chip">Hérnia discal</span><span class="criteria-chip">Estenose de canal</span><span class="criteria-chip">Fraturas</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">Lateral e AP</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">2mm / 1,5mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso e Partes Moles / Sagital, Coronal</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — COLUNA LOMBAR</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-coluna-lombar-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Coluna Lombar">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 200mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">COLUNA LOMBAR<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-coluna-lombar-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Coluna Lombar">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 200mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">COLUNA LOMBAR<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     TÓRAX, ABDÔMEN E PELVE
+     ========================================== -->
+<section class="section-pad" id="torax-abdomen">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Tórax e Cavidade Abdominal</div>
+            <h2 class="section-title">Tórax, Abdômen e Pelve</h2>
+        </div>
+
+        <!-- TC DE TÓRAX -->
+        <div class="matrix-def-card mb-4 reveal" id="torax">
+            <div class="def-term">TC de Tórax</div>
+            <p><b>Posicionamento:</b> Decúbito dorsal, braços elevados acima da cabeça, em apneia inspiratória.</p>
+            <p><b>Finalidade:</b> Estudo do parênquima pulmonar, mediastino, pleura e arcabouço ósseo.</p>
+            <div class="indication-chips"><span class="criteria-chip">Dispneia</span><span class="criteria-chip">Tosse crônica</span><span class="criteria-chip">Nódulos pulmonares</span><span class="criteria-chip">Pneumonia</span><span class="criteria-chip">Tumores</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP (Frontal) e Lateral</div></div><div class="spec-item"><div class="spec-label">Início e Fim</div><div class="spec-value">Ápices pulmonares aos seios costofrênicos</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">2mm / 1mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Pulmonar e Mediastino / Axial, Coronal</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — TÓRAX</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-torax-ap">
+                            <img src="img/scout-torax-ap.png" alt="Scout AP (Frontal) TC de Tórax">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 100mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">TORAX ROTINA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP (Frontal) — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-torax-lat">
+                            <img src="img/scout-torax-lat.png" alt="Scout Lateral TC de Tórax">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 100mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">TORAX ROTINA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE ABDÔMEN TOTAL / PELVE -->
+        <div class="matrix-def-card mb-4 reveal" id="abdomen">
+            <div class="def-term">TC de Abdômen Total / Pelve</div>
+            <p><b>Finalidade:</b> Estudo de órgãos sólidos (fígado, pâncreas, baço, rins), trato gastrointestinal e cavidade pélvica.</p>
+            <div class="indication-chips"><span class="criteria-chip">Dor abdominal</span><span class="criteria-chip">Massas</span><span class="criteria-chip">Abdome agudo</span><span class="criteria-chip">Estadiamento oncológico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP</div></div><div class="spec-item"><div class="spec-label">Início e Fim</div><div class="spec-value">Cúpulas diafragmáticas à sínfise púbica</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">3mm / 3mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Partes Moles / Axial, Coronal, Sagital</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — ABDÔMEN TOTAL</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-abdomen-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Abdômen Total / Pelve">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 220mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">ABDOMEN TOTAL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-abdomen-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Abdômen Total / Pelve">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 220mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">ABDOMEN TOTAL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE PELVE -->
+        <div class="matrix-def-card mb-4 reveal" id="pelve">
+            <div class="def-term">TC de Pelve</div>
+            <p><b>Finalidade:</b> Estudo dos órgãos pélvicos, bexiga, reto e estruturas ósseas da pelve.</p>
+            <div class="indication-chips"><span class="criteria-chip">Dor pélvica</span><span class="criteria-chip">Massas</span><span class="criteria-chip">Trauma</span><span class="criteria-chip">Estadiamento oncológico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP</div></div><div class="spec-item"><div class="spec-label">Início e Fim</div><div class="spec-value">Cristas ilíacas à sínfise púbica</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">3mm / 3mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Partes Moles / Axial, Coronal, Sagital</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — PELVE ISOLADA</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-pelve-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Pelve">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 200mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">PELVE ISOLADA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-pelve-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Pelve">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 200mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">PELVE ISOLADA<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     MEMBROS SUPERIORES (MMSS)
+     ========================================== -->
+<section class="section-pad" id="membros-superiores">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Aparelho Locomotor</div>
+            <h2 class="section-title">Membros Superiores (MMSS)</h2>
+        </div>
+
+        <!-- TC DE OMBRO -->
+        <div class="matrix-def-card mb-4 reveal" id="ombro">
+            <div class="def-term">TC de Ombro</div>
+            <p><b>Finalidade:</b> Estudo da articulação glenoumeral, clavícula, escápula e úmero proximal.</p>
+            <div class="indication-chips"><span class="criteria-chip">Fraturas</span><span class="criteria-chip">Luxação</span><span class="criteria-chip">Lesões ósseas</span><span class="criteria-chip">Pós-cirúrgico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP e Lateral</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial, Coronal, Sagital Oblíqua</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — OMBRO</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-ombro-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Ombro">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 150mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">OMBRO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-ombro-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Ombro">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 150mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">OMBRO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE COTOVELO -->
+        <div class="matrix-def-card mb-4 reveal" id="cotovelo">
+            <div class="def-term">TC de Cotovelo</div>
+            <p><b>Finalidade:</b> Estudo das superfícies articulares do úmero distal, rádio e ulna.</p>
+            <div class="indication-chips"><span class="criteria-chip">Fraturas</span><span class="criteria-chip">Corpos livres articulares</span><span class="criteria-chip">Pós-cirúrgico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP e Lateral</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial, Coronal, Sagital</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — COTOVELO</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-cotovelo-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Cotovelo">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">COTOVELO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-cotovelo-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Cotovelo">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">COTOVELO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE PUNHO -->
+        <div class="matrix-def-card mb-4 reveal" id="punho">
+            <div class="def-term">TC de Punho</div>
+            <p><b>Finalidade:</b> Estudo dos ossos do carpo e extremidades distais do rádio e da ulna.</p>
+            <div class="indication-chips"><span class="criteria-chip">Fraturas (escafóide)</span><span class="criteria-chip">Pseudoartrose</span><span class="criteria-chip">Pós-cirúrgico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">PA e Lateral</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial, Coronal, Sagital</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — PUNHO</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-punho-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout PA TC de Punho">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">PUNHO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma PA — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-punho-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Punho">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">PUNHO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     MEMBROS INFERIORES (MMII)
+     ========================================== -->
+<section class="section-pad" id="membros-inferiores">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-eyebrow">Aparelho Locomotor</div>
+            <h2 class="section-title">Membros Inferiores (MMII)</h2>
+        </div>
+
+        <!-- TC DE BACIA -->
+        <div class="matrix-def-card mb-4 reveal" id="bacia">
+            <div class="def-term">TC de Bacia</div>
+            <p><b>Finalidade:</b> Estudo do anel pélvico, acetábulos e articulações coxofemorais.</p>
+            <div class="indication-chips"><span class="criteria-chip">Fraturas</span><span class="criteria-chip">Luxação</span><span class="criteria-chip">Trauma de alta energia</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">2mm / 1,5mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial, Coronal, Sagital, 3D</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — BACIA</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-bacia-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Bacia">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 200mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">BACIA / QUADRIL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-bacia-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Bacia">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 200mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">BACIA / QUADRIL<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE JOELHO -->
+        <div class="matrix-def-card mb-4 reveal" id="joelho">
+            <div class="def-term">TC de Joelho</div>
+            <p><b>Finalidade:</b> Estudo das superfícies articulares do fêmur distal, tíbia proximal e patela.</p>
+            <div class="indication-chips"><span class="criteria-chip">Fraturas</span><span class="criteria-chip">Instabilidade patelar</span><span class="criteria-chip">Pós-cirúrgico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP e Lateral</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial, Coronal, Sagital</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — JOELHO</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-joelho-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Joelho">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 130mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">JOELHO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-joelho-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Joelho">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 130mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">JOELHO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE TORNOZELO -->
+        <div class="matrix-def-card mb-4 reveal" id="tornozelo">
+            <div class="def-term">TC de Tornozelo</div>
+            <p><b>Finalidade:</b> Estudo da articulação tibiotársica, maléolos e tálus.</p>
+            <div class="indication-chips"><span class="criteria-chip">Fraturas</span><span class="criteria-chip">Lesões osteocondrais</span><span class="criteria-chip">Pós-cirúrgico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP e Lateral</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial, Coronal, Sagital</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — TORNOZELO</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-tornozelo-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Tornozelo">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">TORNOZELO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-tornozelo-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Tornozelo">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">TORNOZELO<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
+            </div>
+        </div>
+
+        <!-- TC DE PÉ -->
+        <div class="matrix-def-card mb-4 reveal" id="pe">
+            <div class="def-term">TC de Pé</div>
+            <p><b>Finalidade:</b> Estudo dos ossos do tarso, metatarso e falanges.</p>
+            <div class="indication-chips"><span class="criteria-chip">Fraturas de calcâneo</span><span class="criteria-chip">Coalizão tarsal</span><span class="criteria-chip">Pós-cirúrgico</span></div>
+            <div class="spec-grid mt-3"><div class="spec-item"><div class="spec-label">Topograma</div><div class="spec-value">AP e Lateral</div></div><div class="spec-item"><div class="spec-label">Espessura / Intervalo</div><div class="spec-value">1mm / 0,8mm</div></div><div class="spec-item"><div class="spec-label">Filtros / MPR</div><div class="spec-value">Osso / Axial, Coronal, Sagital, 3D</div></div></div>
+
+            <div class="matrix-demo-panel mt-4">
+                <div class="gantry-label-row">
+                    <span class="gantry-tag"><span class="dot"></span>SIMULADOR DE PLANEJAMENTO (SCAN BOX) — PÉ</span>
+                </div>
+                <div class="scout-real-row">
+                    <div class="scout-real-main">
+                        <div class="scout-image-wrap" id="scout-pe-ap">
+                            <img src="img/scout-ap.jpg" alt="Scout AP TC de Pé">
+                            <div class="dicom-overlay-tl">2883: 1:2<br>1.0D</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">L=109<br>W=135<br>Aquilion Start</div>
+                            <div class="dicom-overlay-br">PE<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma AP — Arraste o caixote ou as bordas ↕</div>
+                    </div>
+                    <div class="scout-real-side">
+                        <div class="scout-image-wrap" id="scout-pe-lat">
+                            <img src="img/scout-lateral.jpg" alt="Scout Lateral TC de Pé">
+                            <div class="dicom-overlay-tl">3:1:1</div>
+                            <div class="dicom-overlay-tr">2026.10.01 20:33<br>120kV / 120mA<br>2.4s / 2.0mm / 1.0x</div>
+                            <div class="dicom-overlay-bl">109<br>135</div>
+                            <div class="dicom-overlay-br">PE<br>23Y / M<br>SU/HF/VSF</div>
+                            <div class="dicom-ruler"></div>
+                            <div class="scout-box-overlay">
+                                <div class="scout-angle-indicator">0.0 deg.</div>
+                                <div class="scout-center-line"></div>
+                                <div class="scout-diamond-marker tl"></div><div class="scout-diamond-marker tm"></div><div class="scout-diamond-marker tr"></div><div class="scout-diamond-marker bl"></div><div class="scout-diamond-marker bm"></div><div class="scout-diamond-marker br"></div>
+                            </div>
+                        </div>
+                        <div class="scout-drag-hint">Topograma Lateral — sincronizado com o AP</div>
+                    </div>
+                </div>
+                <!-- painel de controles, simulação e treino são gerados pelo protocolo.js -->
             </div>
         </div>
     </div>
@@ -175,7 +1072,7 @@
 <footer class="footer-scan">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
-            <span>Protocolos de exame · Tomografia Computadorizada</span>
+            <span>Protocolos de Exame · Tomografia Computadorizada</span>
             <span class="mono">HTML5 · CSS3 · Bootstrap 4 · JavaScript</span>
         </div>
         <div class="footer-contact">
@@ -194,7 +1091,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
-
 <script src="js/protocolo.js"></script>
+
 </body>
 </html>
